@@ -19,7 +19,7 @@ public class Parser extends java_cup.runtime.lr_parser {
   @Deprecated
   public Parser() {super();}
 
-  /** Constructor which sets the default scanner. */
+  /** Constructor which sets the default scanner. j */
   @Deprecated
   public Parser(java_cup.runtime.Scanner s) {super(s);}
 
