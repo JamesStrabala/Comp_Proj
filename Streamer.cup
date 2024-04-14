@@ -1,6 +1,7 @@
 import java_cup.runtime.*;
 
-/* This code redefines a syntax error to give a more useful message */
+/* This code redefines a syntax error to give a more useful message 
+Edit by chloe ballin */
 parser code
 {:
 public void syntax_error(Symbol lastToken) {
