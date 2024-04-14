@@ -1,0 +1,374 @@
+import java_cup.runtime.*;
+
+/* This code redefines a syntax error to give a more useful message */
+parser code
+{:
+public void syntax_error(Symbol lastToken) {
+    System.err.println("Syntax error at  " +
+                       "Line: " + lastToken.left + "   " +
+                       "Column: " + lastToken.right);
+}
+
+public void report_fatal_error(String message, Object info) {
+    report_error(message, info);
+    done_parsing();
+    System.exit(1);
+}
+:};
+
+/* Terminals (tokens returned by the scanner). */
+/* This is what generates sym.java! */
+terminal SEMICOLON, ASSIGN, PLUS, MINUS, TIMES, DIVIDE, MOD;
+terminal AND, OR, NOT, EQUALS, LT, GT, LEQ, GEQ;
+terminal OPENCURLY, CLOSECURLY;
+terminal OPENPAREN, CLOSEPAREN;
+terminal OPENSQBRACE, CLOSESQBRACE;
+terminal COMMA, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
+terminal NUMTYPE, TEXTTYPE, BOOLTYPE, VOIDTYPE, LISTTYPE;
+terminal TRUE, FALSE;
+terminal PRINT, INPUT, EXIT, UNTIL, ERROR, FUNC;
+terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
+terminal SWITCH, CASE, DEFAULT;
+terminal String NUM, ID, QSTRING;
+
+/* Non terminals */
+non terminal ProgramNode program;
+non terminal FunctionListNode func_list;
+non terminal StatementListNode stmt_list;
+non terminal StatementNode stmt;
+non terminal ExpressionNode expr;
+non terminal TypeNode type;
+non terminal ExpressionListNode expr_list;
+non terminal ErrorStatementNode er;
+non terminal FunkNode funkyboi;
+non terminal ParamNode p;
+non terminal ParamListNode pl;
+non terminal CaseListNode cl;
+non terminal DefaultCaseNode dc;
+non terminal CaseNode case;
+
+/* Precedences */
+precedence right ASSIGN;
+precedence left EQUALS;
+precedence left PLUS, MINUS;
+precedence left TIMES, DIVIDE, MOD;
+precedence left OR;
+precedence left AND;
+precedence right NOT;
+
+/* The grammar rules */
+program ::= func_list:f stmt_list:s
+    {:
+        System.err.println("Program parsed!");
+        RESULT = new ProgramNode(f, s);
+    :}
+;
+
+funkyboi  ::= FUNC type:t ID:i  OPENPAREN pl:p CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY
+{:
+         System.err.println("Funk parsed!");
+	RESULT = new FunkNode(t,i,p,s);
+:}
+;
+func_list ::= /* epsilson: TODO! */
+    {:
+        System.err.println("Function list parsed!");
+        RESULT = new FunctionListNode();
+    :}
+	| funkyboi:f func_list:f2
+{:
+	f2.addFunk(f,0);
+	RESULT=f2;
+:}
+
+;
+
+stmt_list ::= stmt:s stmt_list:l
+    {:
+        System.err.println("Statement list parsed!");
+        /* Add statement at position 0; it should be at the *front* of the list */
+        l.addStatement(s, 0);
+        RESULT = l;
+    :}
+            | /* epsilon */
+    {:
+        System.err.println("Empty statement list parsed!");
+        RESULT = new StatementListNode();
+    :}
+;
+
+stmt      ::= expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as expression!");
+        RESULT = new ExpressionStatementNode(e);
+    :}
+            | PRINT expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as print!");
+        RESULT = new PrintStatementNode(e);
+    :}
+            | ID:i ASSIGN expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as assignment!");
+        RESULT = new AssignStatementNode(i, e);
+    :}
+            | type:t ID:i ASSIGN expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as a declaration assignment!");
+        AssignStatementNode assignment = new AssignStatementNode(i, e);
+        RESULT = new DeclarationStatementNode(t, i, assignment);
+    :}
+            | type:t ID:i SEMICOLON
+    {:
+        System.err.println("Statement parsed as a declaration!");
+        RESULT = new DeclarationStatementNode(t, i);
+    :}
+            | ERROR OPENCURLY stmt_list:s CLOSECURLY
+    {:
+        System.err.println("Statement parsed as an error statement!");
+        RESULT = new ErrorStatementNode(s);
+    :}
+            | type:t ID:i READFILE expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as a declaration read!");
+        ReadStatementNode assignment = new ReadStatementNode(i, e);
+        RESULT = new DeclarationStatementNode(t, i, assignment);
+:}
+            | EXIT expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as Exit!");
+        RESULT = new ExitStatementNode(e);
+:}
+            | RETURN expr:e SEMICOLON
+    {:
+        System.err.println("Statement parsed as Return!");
+        RESULT = new ReturnStatementNode(e);
+:}
+            | UNTIL type:t ID:i READFILE expr:e SEMICOLON OPENCURLY stmt_list:s CLOSECURLY
+    {:
+        System.err.println("Statement parsed as until!");
+        ReadStatementNode assignment = new ReadStatementNode(i, e);
+        DeclarationStatementNode ds = new DeclarationStatementNode(t, i, assignment);
+	RESULT = new UntilStatementNode(ds, s);
+:}
+            | UNTIL type:t ID:i ASSIGN expr:e SEMICOLON OPENCURLY stmt_list:s CLOSECURLY
+    {:
+        System.err.println("Statement parsed as until!");
+        AssignStatementNode assignment = new AssignStatementNode(i, e);
+        DeclarationStatementNode ds = new DeclarationStatementNode(t, i, assignment);
+	RESULT = new UntilStatementNode(ds, s);
+:}
+            | expr:e WRITEFILE expr:e2 SEMICOLON
+    {:
+        System.err.println("Statement parsed as a File write!");
+        RESULT = new FileWriteNode(e,e2);
+:}
+            | IF OPENPAREN expr:e CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY
+    {:
+        System.err.println("Statement parsed as if!");
+        RESULT = new IfStateNode(e,s);
+:}
+            | IF OPENPAREN expr:e CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY ELSE OPENCURLY stmt_list:s2 CLOSECURLY
+    {:
+        System.err.println("Statement parsed as if!");
+        RESULT = new IfStateNode(e,s,s2);
+:}
+            | FOR OPENPAREN type:t ID:i COLON  ID:i2 CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY
+    {:
+        System.err.println("Statement parsed as for!");
+        RESULT = new ForStateNode(t, i, new IdExpressionNode(i2), s);
+:}
+            | SWITCH OPENPAREN expr:e CLOSEPAREN OPENCURLY cl:cas dc:d CLOSECURLY
+    {:
+        System.err.println("Statement parsed as switch!");
+	cas.addDefault(d);
+        RESULT = new CaseStateNode(e, cas);
+:}
+;
+
+expr      ::= expr:e1 PLUS expr:e2
+    {:
+        System.err.println("Expression parsed as plus!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "+");
+    :}
+            | expr:e1 MINUS expr:e2
+    {:
+        System.err.println("Expression parsed as minus!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "-");
+    :}
+            | expr:e1 AND expr:e2
+    {:
+        System.err.println("Expression parsed as and!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "&&");
+    :}
+            | expr:e1 OR expr:e2
+    {:
+        System.err.println("Expression parsed as or!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "||");
+    :}
+            | ID:i
+    {:
+        System.err.println("Expression parsed as ID!");
+        RESULT = new IdExpressionNode(i);
+    :}
+            | NUM:n
+    {:
+        System.err.println("Expression parsed as NUM!");
+        RESULT = new NumExpressionNode(n);
+    :}
+            | QSTRING:s
+    {:
+        System.err.println("Expression parsed as QSTRING!");
+        RESULT = new StringExpressionNode(s);
+    :}
+            | FALSE
+    {:
+        System.err.println("Expression parsed as FALSE!");
+        RESULT = new BoolExpressionNode(false);
+    :}
+            | TRUE
+    {:
+        System.err.println("Expression parsed as TRUE!");
+        RESULT = new BoolExpressionNode(true);
+    :}
+            | NOT expr:e
+    {:
+        System.err.println("Expression parsed as NOT!");
+        RESULT = new NotExpressionNode(e);
+    :}
+            |  OPENCURLY expr_list:el CLOSECURLY
+    {:
+        System.err.println("Expression parsed as list!");
+        RESULT = el;
+    :}
+            | ID:i OPENPAREN expr_list:el CLOSEPAREN
+    {:
+        System.err.println("Expression parsed as Funk Kall!");
+        RESULT = new FunkKallNode(i,el);
+    :}
+            | INPUT expr:e
+    {:
+        System.err.println("Expression parsed as input!");
+        RESULT = new InputExpNode(e);
+    :}
+            | ID:i OPENSQBRACE expr:e CLOSESQBRACE
+    {:
+        System.err.println("Expression parsed as list access!");
+        RESULT = new ListAcNode(i, e);
+    :}
+            | expr:e1 TIMES expr:e2
+    {:
+        System.err.println("Expression parsed as times!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "*");
+    :}
+            | expr:e1 DIVIDE expr:e2
+    {:
+        System.err.println("Expression parsed as divide!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "/");
+    :}
+            | expr:e1 MOD expr:e2
+    {:
+        System.err.println("Expression parsed as mod!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "%");
+    :}
+            | ID:i OPENFILTER expr:e CLOSEFILTER
+    {:
+        System.err.println("Expression parsed as list filter!");
+        RESULT = new ListFiltNode(i,e);
+    :}
+            | expr:e1 EQUALS expr:e2
+    {:
+        System.err.println("Expression parsed as mod!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "==");
+    :}
+;
+expr_list ::= expr:e COMMA expr_list:el
+    {:
+        System.err.println("Statement list parsed!");
+        el.addExpression(e, 0);
+        RESULT = el;
+    :}
+            | expr:e
+    {:
+        System.err.println("Expression parsed!");
+        RESULT = new ExpressionListNode(e);
+    :}
+            | /**/
+    {:
+        System.err.println("Expression parsed!");
+        RESULT = new ExpressionListNode();
+    :}
+;
+type      ::= NUMTYPE
+    {:
+        System.err.println("Type parsed as NUM!");
+        RESULT = new TypeNode("num");
+    :}
+            | TEXTTYPE
+    {:
+        System.err.println("Type parsed as TEXT!");
+        RESULT = new TypeNode("text");
+    :}
+            | BOOLTYPE
+    {:
+        System.err.println("Type parsed as BOOL!");
+        RESULT = new TypeNode("bool");
+    :}
+            | VOIDTYPE
+    {:
+        System.err.println("Type parsed as VOID!");
+        RESULT = new TypeNode("void");
+    :}
+            | LISTTYPE LT type:t GT
+    {:
+        System.err.println("Type parsed as LIST!");
+        RESULT = new ListTypeNode(t);
+    :}
+;
+p     ::= type:t ID:i
+{:
+	System.err.println("Parameter parsed!");
+	RESULT= new ParamNode(t,i);
+:}
+;
+pl ::= p:pa COMMA pl:l
+    {:
+        System.err.println("Parameter list parsed!");
+        l.addParam(pa, 0);
+        RESULT = l;
+    :}
+            | p:pa
+    {:
+        System.err.println("Parameter parsed!");
+        RESULT = new ParamListNode(pa);
+    :}
+            | /**/
+    {:
+        System.err.println("Expression parsed!");
+        RESULT = new ParamListNode();
+    :}
+;
+case    ::= CASE expr:e COLON stmt:s
+    {:
+        System.err.println("Case parsed!");
+        RESULT = new CaseNode(e,s);
+    :}
+;
+dc    ::= DEFAULT COLON stmt:s
+    {:
+        System.err.println("Default Case parsed!");
+        RESULT = new DefaultCaseNode(s);
+    :}
+;
+cl   ::=  case:cas cl:lis
+{:
+	lis.addCase(cas,0);
+	System.err.println("Case added");
+	RESULT=lis;
+:} 
+            | /**/
+    {:
+        System.err.println("case list parsed!");
+        RESULT = new CaseListNode();
+    :}
+;
