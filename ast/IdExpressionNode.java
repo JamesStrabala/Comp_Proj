@@ -8,9 +8,9 @@ import java_cup.runtime.*;
 public class IdExpressionNode extends ExpressionNode {
     private String value;
 
-    public IdExpressionNode(String id) {
+    public IdExpressionNode(String ид) {
         super();
-        this.value = id;
+        this.value = ид;
     }
 
     @Override

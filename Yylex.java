@@ -728,7 +728,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 56: break;
           case 3: 
-            { return makeSym(sym.ID, yytext());
+            { return makeSym(sym.ИД, yytext());
             } 
             // fall through
           case 57: break;
