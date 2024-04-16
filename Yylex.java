@@ -40,7 +40,8 @@ class Yylex implements java_cup.runtime.Scanner {
     "\32\2\1\52\1\62\1\53\3\0\1\25\1\14\1\32\1\21\1\12"+
     "\1\24\1\2\1\31\1\20\1\2\1\27\1\16\1\10\1\6\1\15"+
     "\1\26\1\2\1\23\1\22\1\11\1\7\1\17\1\30\1\13\2\2"+
-    "\1\46\1\42\1\47\7\0\1\63\u1fa2\0\1\63\1\63\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+    "\1\46\1\42\1\47\7\0\1\63\u038a\0\100\2\u1bd8\0\1\63\1\63"+
+    "\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
 
   /** 
    * Translates characters to character classes
@@ -353,7 +354,7 @@ private Symbol makeSym(int type) {
     char [] map = new char[0x110000];
     int i = 0;  /* index in packed string  */
     int j = 0;  /* index in unpacked array */
-    while (i < 170) {
+    while (i < 174) {
       int  count = packed.charAt(i++);
       char value = packed.charAt(i++);
       do map[j++] = value; while (--count > 0);

@@ -30,7 +30,7 @@ private Symbol makeSym(int type) {
 %}
 
 DIGIT  = [0-9]
-LETTER = [A-Za-z]
+LETTER = [A-Za-z] | [А-Яа-я]
 WS     = (\r|\n|\r\n) | [ \t\f]
 
 %state STRING
