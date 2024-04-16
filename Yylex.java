@@ -893,7 +893,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 89: break;
           case 36: 
-            { return makeSym(sym.TEXTTYPE);
+            { return makeSym(sym.ТЕКСТ);
             } 
             // fall through
           case 90: break;

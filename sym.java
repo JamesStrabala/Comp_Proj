@@ -37,7 +37,6 @@ public interface sym {
   public static final int ASSIGN = 3;
   public static final int EOF = 0;
   public static final int RETURN = 47;
-  public static final int TEXTTYPE = 30;
   public static final int TRUE = 34;
   public static final int error = 1;
   public static final int MOD = 8;
@@ -54,6 +53,7 @@ public interface sym {
   public static final int FUNC = 41;
   public static final int WHILE = 45;
   public static final int DEFAULT = 50;
+  public static final int ТЕКСТ = 30;
   public static final int LEQ = 15;
   public static final int WRITEFILE = 26;
   public static final int FALSE = 35;
@@ -91,7 +91,7 @@ public interface sym {
   "OPENFILTER",
   "CLOSEFILTER",
   "NUMTYPE",
-  "TEXTTYPE",
+  "ТЕКСТ",
   "BOOLTYPE",
   "VOIDTYPE",
   "LISTTYPE",

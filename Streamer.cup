@@ -25,7 +25,7 @@ terminal OPENCURLY, CLOSECURLY;
 terminal OPENPAREN, CLOSEPAREN;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal COMMA, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
-terminal NUMTYPE, TEXTTYPE, BOOLTYPE, VOIDTYPE, LISTTYPE;
+terminal NUMTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
 terminal TRUE, FALSE;
 terminal выход, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
@@ -305,10 +305,10 @@ type      ::= NUMTYPE
         System.err.println("Type parsed as NUM!");
         RESULT = new TypeNode("num");
     :}
-            | TEXTTYPE
+            | ТЕКСТ
     {:
         System.err.println("Type parsed as TEXT!");
-        RESULT = new TypeNode("text");
+        RESULT = new TypeNode("текст");
     :}
             | BOOLTYPE
     {:
