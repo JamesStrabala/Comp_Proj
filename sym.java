@@ -6,6 +6,7 @@
 /** CUP generated interface containing symbol constants. */
 public interface sym {
   /* terminals */
+  public static final int ИД = 52;
   public static final int DIVIDE = 7;
   public static final int QSTRING = 53;
   public static final int OPENSQBRACE = 21;
@@ -34,7 +35,6 @@ public interface sym {
   public static final int PLUS = 4;
   public static final int IF = 42;
   public static final int ASSIGN = 3;
-  public static final int ID = 52;
   public static final int EOF = 0;
   public static final int RETURN = 47;
   public static final int TEXTTYPE = 30;
@@ -113,7 +113,7 @@ public interface sym {
   "CASE",
   "DEFAULT",
   "NUM",
-  "ID",
+  "ИД",
   "QSTRING"
   };
 }
