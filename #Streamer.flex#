@@ -66,9 +66,9 @@ false
     {
         return makeSym(sym.FALSE);
     }
-print
+выход
     {
-        return makeSym(sym.PRINT);
+        return makeSym(sym.выход);
     }
 input
     {

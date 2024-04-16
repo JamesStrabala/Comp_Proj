@@ -4,13 +4,13 @@
 import java_cup.runtime.*;
 
 /**
- * This class is the lexer (i.e., scanner) for the Streamer  
+ * This class is the lexer (i.e., scanner) for the Streamer
  * language (that students complete in CSCI 340).
  */
 
 class Yylex implements java_cup.runtime.Scanner {
 
-  /** This character denotes the end  of file */
+  /** This character denotes the end of file */
   public static final int YYEOF = -1;
 
   /** initial size of the lookahead buffer */
@@ -963,7 +963,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 103: break;
           case 50: 
-            { return makeSym(sym.PRINT);
+            { return makeSym(sym.выход);
             } 
             // fall through
           case 104: break;
