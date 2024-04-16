@@ -68,7 +68,7 @@ false
     }
 print
     {
-        return makeSym(sym.PRINT);
+        return makeSym(sym.выход);
     }
 input
     {
@@ -132,7 +132,7 @@ default
 /* operators and other important chars */
 (=)
     {
-        return makeSym(sym.ASSIGN);
+        return makeSym(sym.РАВНО);
     }
 (\+)
     {
@@ -156,7 +156,7 @@ default
     }
 (\&\&)
     {
-        return makeSym(sym.AND);
+        return makeSym(sym.И);
     }
 (\|\|)
     {
@@ -164,7 +164,7 @@ default
     }
 (\!)
     {
-        return makeSym(sym.NOT);
+        return makeSym(sym.НЕТ);
     }
 (\=\=)
     {
@@ -236,14 +236,14 @@ default
     }
 (;)
     {
-        return makeSym(sym.SEMICOLON);
+        return makeSym(sym.ЕНДЛ);
     }
 
 
 /* values */
 {DIGIT}+(\.{DIGIT}+)?
     {
-        return makeSym(sym.NUM, yytext());
+        return makeSym(sym.ЦЕЛ, yytext());
     }
 \"(\\.|[^\\\"])*\"
     {

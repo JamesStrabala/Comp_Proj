@@ -723,7 +723,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 55: break;
           case 2: 
-            { return makeSym(sym.NUM, yytext());
+            { return makeSym(sym.ЦЕЛ, yytext());
             } 
             // fall through
           case 56: break;
@@ -738,7 +738,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 58: break;
           case 5: 
-            { return makeSym(sym.ASSIGN);
+            { return makeSym(sym.РАВНО);
             } 
             // fall through
           case 59: break;
@@ -768,7 +768,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 64: break;
           case 11: 
-            { return makeSym(sym.NOT);
+            { return makeSym(sym.НЕТ);
             } 
             // fall through
           case 65: break;
@@ -823,7 +823,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 75: break;
           case 22: 
-            { return makeSym(sym.SEMICOLON);
+            { return makeSym(sym.ЕНДЛ);
             } 
             // fall through
           case 76: break;
@@ -838,7 +838,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 78: break;
           case 25: 
-            { return makeSym(sym.AND);
+            { return makeSym(sym.И);
             } 
             // fall through
           case 79: break;
@@ -893,7 +893,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 89: break;
           case 36: 
-            { return makeSym(sym.ТЕКСТ);
+            { return makeSym(sym.TEXTTYPE);
             } 
             // fall through
           case 90: break;
