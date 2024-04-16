@@ -10,7 +10,7 @@ import java_cup.runtime.*;
 
 class Yylex implements java_cup.runtime.Scanner {
 
-  /** This character denotes the end of file */
+  /** This character denotes the end  of file */
   public static final int YYEOF = -1;
 
   /** initial size of the lookahead buffer */
