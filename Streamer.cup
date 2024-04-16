@@ -20,7 +20,7 @@ public void report_fatal_error(String message, Object info) {
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
 terminal SEMICOLON, ASSIGN, PLUS, MINUS, TIMES, DIVIDE, MOD;
-terminal AND, OR, NOT, EQUALS, LT, GT, LEQ, GEQ;
+terminal AND, ИЛИ, NOT, EQUALS, LT, GT, LEQ, GEQ;
 terminal OPENCURLY, CLOSECURLY;
 terminal OPENPAREN, CLOSEPAREN;
 terminal OPENSQBRACE, CLOSESQBRACE;
@@ -53,7 +53,7 @@ precedence right ASSIGN;
 precedence left EQUALS;
 precedence left PLUS, MINUS;
 precedence left TIMES, DIVIDE, MOD;
-precedence left OR;
+precedence left ИЛИ;
 precedence left AND;
 precedence right NOT;
 
@@ -202,7 +202,7 @@ expr      ::= expr:e1 PLUS expr:e2
         System.err.println("Expression parsed as and!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "&&");
     :}
-            | expr:e1 OR expr:e2
+            | expr:e1 ИЛИ expr:e2
     {:
         System.err.println("Expression parsed as or!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "||");

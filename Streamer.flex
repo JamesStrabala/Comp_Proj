@@ -160,7 +160,7 @@ default
     }
 (\|\|)
     {
-        return makeSym(sym.OR);
+        return makeSym(sym.ИЛИ);
     }
 (\!)
     {

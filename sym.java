@@ -26,7 +26,7 @@ public interface sym {
   public static final int LT = 13;
   public static final int NUMTYPE = 29;
   public static final int VOIDTYPE = 32;
-  public static final int OR = 10;
+  public static final int ИЛИ = 10;
   public static final int COMMA = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
@@ -71,7 +71,7 @@ public interface sym {
   "DIVIDE",
   "MOD",
   "AND",
-  "OR",
+  "ИЛИ",
   "NOT",
   "EQUALS",
   "LT",

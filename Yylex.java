@@ -843,7 +843,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 79: break;
           case 26: 
-            { return makeSym(sym.OR);
+            { return makeSym(sym.ИЛИ);
             } 
             // fall through
           case 80: break;
