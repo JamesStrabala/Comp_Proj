@@ -27,7 +27,7 @@ terminal OPENSQBRACE, CLOSESQBRACE;
 terminal COMMA, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE, TEXTTYPE, BOOLTYPE, VOIDTYPE, LISTTYPE;
 terminal TRUE, FALSE;
-terminal PRINT, INPUT, EXIT, UNTIL, ERROR, FUNC;
+terminal выход, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String NUM, ИД, QSTRING;
@@ -103,7 +103,7 @@ stmt      ::= expr:e SEMICOLON
         System.err.println("Statement parsed as expression!");
         RESULT = new ExpressionStatementNode(e);
     :}
-            | PRINT expr:e SEMICOLON
+            | выход expr:e SEMICOLON
     {:
         System.err.println("Statement parsed as print!");
         RESULT = new PrintStatementNode(e);

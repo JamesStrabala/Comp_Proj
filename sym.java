@@ -59,7 +59,7 @@ public interface sym {
   public static final int FALSE = 35;
   public static final int CLOSESQBRACE = 22;
   public static final int GT = 14;
-  public static final int PRINT = 36;
+  public static final int выход = 36;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -97,7 +97,7 @@ public interface sym {
   "LISTTYPE",
   "TRUE",
   "FALSE",
-  "PRINT",
+  "выход",
   "INPUT",
   "EXIT",
   "UNTIL",

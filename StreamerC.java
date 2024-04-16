@@ -16,7 +16,7 @@ public class StreamerC {
      * indent other than "".
      *
      * @param node the AST node to (recursively) print out
-     * @param indent the current indent to use (increases as we recurse down
+     * @param indent the current indent to use (increases as we recurse down 
      *               the tree)
      */
     private static void printAST(ASTNode node, String indent) {
