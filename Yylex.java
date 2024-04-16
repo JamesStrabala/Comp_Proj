@@ -4,7 +4,7 @@
 import java_cup.runtime.*;
 
 /**
- * This class is the lexer (i.e., scanner) for the Streamer
+ * This class is the lexer (i.e., scanner) for the Streamer  
  * language (that students complete in CSCI 340).
  */
 
