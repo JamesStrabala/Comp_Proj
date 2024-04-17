@@ -24,7 +24,7 @@ public interface sym {
   public static final int NUMTYPE = 29;
   public static final int ЕНДЛ = 2;
   public static final int VOIDTYPE = 33;
-  public static final int COMMA = 23;
+  public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 40;
   public static final int GEQ = 16;
   public static final int EXIT = 39;
@@ -85,7 +85,7 @@ public interface sym {
   "CLOSEPAREN",
   "OPENSQBRACE",
   "CLOSESQBRACE",
-  "COMMA",
+  "ПОЛОСРАСКОЛ",
   "COLON",
   "READFILE",
   "WRITEFILE",

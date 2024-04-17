@@ -24,7 +24,7 @@ terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
 terminal OPENCURLY, CLOSECURLY;
 terminal OPENPAREN, CLOSEPAREN;
 terminal OPENSQBRACE, CLOSESQBRACE;
-terminal COMMA, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
+terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE, TEXTTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
 terminal TRUE, FALSE;
 terminal выход, INPUT, EXIT, UNTIL, ERROR, FUNC;
@@ -137,7 +137,7 @@ stmt      ::= expr:e ЕНДЛ
 :}
             | EXIT expr:e ЕНДЛ 
     {:
-        System.err.println("Statement parsed as Exit!");
+        System.err.println("Statement parsed as Exit!"); 
         RESULT = new ExitStatementNode(e);
 :}
             | RETURN expr:e ЕНДЛ 
@@ -283,7 +283,7 @@ expr      ::= expr:e1 PLUS expr:e2
         RESULT = new BinaryOpExpressionNode(e1, e2, "==");
     :}
 ;
-expr_list ::= expr:e COMMA expr_list:el
+expr_list ::= expr:e ПОЛОСРАСКОЛ expr_list:el
     {:
         System.err.println("Statement list parsed!");
         el.addExpression(e, 0);
@@ -332,7 +332,7 @@ p     ::= type:t ИД:и
 	RESULT= new ParamNode(t,и);
 :}
 ;
-pl ::= p:pa COMMA pl:l
+pl ::= p:pa ПОЛОСРАСКОЛ pl:l
     {:
         System.err.println("Parameter list parsed!");
         l.addParam(pa, 0);

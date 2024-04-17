@@ -210,9 +210,11 @@ default
     {
         return makeSym(sym.CLOSESQBRACE);
     }
-(,)
+/* use a semicolon to separate items in a list instead of a comma */
+
+(;)
     {
-        return makeSym(sym.COMMA);
+        return makeSym(sym.ПОЛОСРАСКОЛ);
     }
 (:)
     {
@@ -234,7 +236,8 @@ default
     {
         return makeSym(sym.CLOSEFILTER);
     }
-(;)
+/* use periods instead of semicolons */
+(.)
     {
         return makeSym(sym.ЕНДЛ);
     }

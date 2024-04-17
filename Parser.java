@@ -734,7 +734,7 @@ class CUP$Parser$actions {
 		int eright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).right;
 		ExpressionNode e = (ExpressionNode)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
 		
-        System.err.println("Statement parsed as Exit!");
+        System.err.println("Statement parsed as Exit!"); 
         RESULT = new ExitStatementNode(e);
 
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("stmt",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
@@ -1224,7 +1224,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 42: // expr_list ::= expr COMMA expr_list 
+          case 42: // expr_list ::= expr ПОЛОСРАСКОЛ expr_list 
             {
               ExpressionListNode RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
@@ -1351,7 +1351,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 51: // pl ::= p COMMA pl 
+          case 51: // pl ::= p ПОЛОСРАСКОЛ pl 
             {
               ParamListNode RESULT =null;
 		int paleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
