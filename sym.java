@@ -12,11 +12,19 @@ public interface sym {
   public static final int QSTRING = 53;
   public static final int ВЫХОД = 36;
   public static final int OPENSQBRACE = 21;
-  public static final int EQUALS = 12;
   public static final int ПЛЮС = 4;
+  public static final int РОВНЯ = 12;
+<<<<<<< HEAD
   public static final int INPUT = 37;
   public static final int CASE = 49;
   public static final int ОТКУДРЯВЫЙ = 17;
+  public static final int ДО = 45;
+=======
+  public static final int INPUT = 38;
+  public static final int CASE = 50;
+  public static final int ОТКУДРЯВЫЙ = 17;
+  public static final int ДО = 46;
+>>>>>>> main
   public static final int ЗАПКУДРЯВЫЙ = 18;
   public static final int FOR = 44;
   public static final int READFILE = 25;
@@ -30,8 +38,13 @@ public interface sym {
   public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
+<<<<<<< HEAD
   public static final int EXIT = 38;
-  public static final int IF = 42;
+  public static final int ЕЩЕ = 43;
+=======
+  public static final int EXIT = 39;
+  public static final int ЕЩЕ = 44;
+>>>>>>> main
   public static final int EOF = 0;
   public static final int RETURN = 47;
   public static final int error = 1;
@@ -39,18 +52,29 @@ public interface sym {
   public static final int MOD = 8;
   public static final int BREAK = 46;
   public static final int CLOSEFILTER = 28;
+<<<<<<< HEAD
+  public static final int ЕСЛИ = 42;
   public static final int ERROR = 40;
   public static final int SWITCH = 48;
+=======
+  public static final int ЕСЛИ = 43;
+  public static final int ERROR = 41;
+  public static final int SWITCH = 49;
+>>>>>>> main
   public static final int ИЛИ = 10;
   public static final int TIMES = 6;
   public static final int МИНУС = 5;
   public static final int COLON = 24;
-  public static final int ELSE = 43;
+<<<<<<< HEAD
   public static final int FUNC = 41;
-  public static final int WHILE = 45;
   public static final int DEFAULT = 50;
   public static final int ТЕКСТ = 30;
   public static final int ЛОГИЗНАЧ = 31;
+=======
+  public static final int FUNC = 42;
+  public static final int DEFAULT = 51;
+  public static final int ТЕКСТ = 31;
+>>>>>>> main
   public static final int LEQ = 15;
   public static final int ЛОЖЬ = 35;
   public static final int WRITEFILE = 26;
@@ -73,7 +97,7 @@ public interface sym {
   "И",
   "ИЛИ",
   "НЕТ",
-  "EQUALS",
+  "РОВНЯ",
   "LT",
   "GT",
   "LEQ",
@@ -103,10 +127,10 @@ public interface sym {
   "UNTIL",
   "ERROR",
   "FUNC",
-  "IF",
-  "ELSE",
+  "ЕСЛИ",
+  "ЕЩЕ",
   "FOR",
-  "WHILE",
+  "ДО",
   "BREAK",
   "RETURN",
   "SWITCH",
