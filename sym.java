@@ -43,7 +43,6 @@ public interface sym {
   public static final int SWITCH = 48;
   public static final int ИЛИ = 10;
   public static final int TIMES = 6;
-  public static final int BOOLTYPE = 31;
   public static final int МИНУС = 5;
   public static final int COLON = 24;
   public static final int ELSE = 43;
@@ -51,6 +50,7 @@ public interface sym {
   public static final int WHILE = 45;
   public static final int DEFAULT = 50;
   public static final int ТЕКСТ = 30;
+  public static final int ЛОГИЗНАЧ = 31;
   public static final int LEQ = 15;
   public static final int ЛОЖЬ = 35;
   public static final int WRITEFILE = 26;
@@ -92,7 +92,7 @@ public interface sym {
   "CLOSEFILTER",
   "NUMTYPE",
   "ТЕКСТ",
-  "BOOLTYPE",
+  "ЛОГИЗНАЧ",
   "VOIDTYPE",
   "LISTTYPE",
   "ПРАВДА",
