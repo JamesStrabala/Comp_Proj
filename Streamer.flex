@@ -188,7 +188,7 @@ default
     }
 (\{)
     {
-        return makeSym(sym.OPENCURLY);
+        return makeSym(sym.ОТКУДРЯВЫЙ);
     }
 (\})
     {
@@ -196,7 +196,7 @@ default
     }
 (\()
     {
-        return makeSym(sym.OPENPAREN);
+        return makeSym(sym.ОТСКОБКА);
     }
 (\))
     {
