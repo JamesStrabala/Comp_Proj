@@ -21,7 +21,7 @@ public interface sym {
   public static final int FOR = 44;
   public static final int READFILE = 25;
   public static final int ПРАВДА = 34;
-  public static final int LISTTYPE = 33;
+  public static final int СПИСОК = 33;
   public static final int OPENFILTER = 27;
   public static final int LT = 13;
   public static final int NUMTYPE = 29;
