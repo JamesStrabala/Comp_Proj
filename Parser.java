@@ -866,7 +866,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 21: // stmt ::= FOR ОТСКОБКА type ИД COLON ИД ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
+          case 21: // stmt ::= ЗА ОТСКОБКА type ИД COLON ИД ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int tleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).left;

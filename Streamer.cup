@@ -29,7 +29,7 @@ terminal NUMTYPE,  ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
 terminal ПРАВДА, ЛОЖЬ;
 
 terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
-terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
+terminal IF, ELSE, ЗА, WHILE, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
 
@@ -176,7 +176,7 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s,s2);
 :}
-            | FOR ОТСКОБКА  type:t ИД:и COLON  ИД:и2 ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
+            | ЗА ОТСКОБКА  type:t ИД:и COLON  ИД:и2 ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as for!");
         RESULT = new ForStateNode(t, и, new IdExpressionNode(и2), s);

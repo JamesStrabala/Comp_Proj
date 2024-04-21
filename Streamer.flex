@@ -100,7 +100,7 @@ else
     }
 for
     {
-        return makeSym(sym.FOR);
+        return makeSym(sym.ЗА);
     }
 while
     {

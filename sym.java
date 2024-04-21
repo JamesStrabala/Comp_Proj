@@ -18,7 +18,7 @@ public interface sym {
   public static final int CASE = 49;
   public static final int ОТКУДРЯВЫЙ = 17;
   public static final int ЗАПКУДРЯВЫЙ = 18;
-  public static final int FOR = 44;
+  public static final int ЗА  = 44;
   public static final int READFILE = 25;
   public static final int ПРАВДА = 34;
   public static final int LISTTYPE = 33;
@@ -105,7 +105,7 @@ public interface sym {
   "FUNC",
   "IF",
   "ELSE",
-  "FOR",
+  "ЗА",
   "WHILE",
   "BREAK",
   "RETURN",

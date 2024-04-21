@@ -891,7 +891,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 88: break;
           case 35: 
-            { return makeSym(sym.FOR);
+            { return makeSym(sym.ЗА);
             } 
             // fall through
           case 89: break;
