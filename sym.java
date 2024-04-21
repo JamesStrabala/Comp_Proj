@@ -9,12 +9,12 @@ public interface sym {
   public static final int ИД = 52;
   public static final int DIVIDE = 7;
   public static final int QSTRING = 53;
+  public static final int ВЫХОД = 36;
   public static final int OPENSQBRACE = 21;
   public static final int EQUALS = 12;
   public static final int INPUT = 37;
   public static final int CASE = 49;
   public static final int FOR = 44;
-  public static final int MINUS = 5;
   public static final int CLOSEPAREN = 20;
   public static final int READFILE = 25;
   public static final int NOT = 11;
@@ -48,6 +48,7 @@ public interface sym {
   public static final int TIMES = 6;
   public static final int BOOLTYPE = 31;
   public static final int OPENCURLY = 17;
+  public static final int МИНУС = 5;
   public static final int COLON = 24;
   public static final int ELSE = 43;
   public static final int FUNC = 41;
@@ -59,14 +60,13 @@ public interface sym {
   public static final int FALSE = 35;
   public static final int CLOSESQBRACE = 22;
   public static final int GT = 14;
-  public static final int выход = 36;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
   "SEMICOLON",
   "ASSIGN",
   "PLUS",
-  "MINUS",
+  "МИНУС",
   "TIMES",
   "DIVIDE",
   "MOD",
@@ -97,7 +97,7 @@ public interface sym {
   "LISTTYPE",
   "TRUE",
   "FALSE",
-  "выход",
+  "ВЫХОД",
   "INPUT",
   "EXIT",
   "UNTIL",

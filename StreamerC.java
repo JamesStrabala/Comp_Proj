@@ -7,7 +7,7 @@ import java_cup.runtime.Symbol;
  * It then prints out the abstract syntax tree produced by the Parser,
  * increasing the indent of printed nodes for each level of the tree.
  *
- * @author <your name here> based on a template by Peter Ohmann
+ * @author James Strabala, Chloe Ballin, and Josefa Zarate Dolores based on a template by Peter Ohmann
  */
 public class StreamerC {
     /**

@@ -19,7 +19,7 @@ public void report_fatal_error(String message, Object info) {
 
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
-terminal SEMICOLON, ASSIGN, PLUS, MINUS, TIMES, DIVIDE, MOD;
+terminal SEMICOLON, ASSIGN, PLUS, МИНУС, TIMES, DIVIDE, MOD;
 terminal AND, OR, NOT, EQUALS, LT, GT, LEQ, GEQ;
 terminal OPENCURLY, CLOSECURLY;
 terminal OPENPAREN, CLOSEPAREN;
@@ -27,7 +27,7 @@ terminal OPENSQBRACE, CLOSESQBRACE;
 terminal COMMA, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
 terminal TRUE, FALSE;
-terminal выход, INPUT, EXIT, UNTIL, ERROR, FUNC;
+terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String NUM, ИД, QSTRING;
@@ -51,7 +51,7 @@ non terminal CaseNode case;
 /* Precedences */
 precedence right ASSIGN;
 precedence left EQUALS;
-precedence left PLUS, MINUS;
+precedence left PLUS, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
 precedence left OR;
 precedence left AND;
@@ -103,7 +103,7 @@ stmt      ::= expr:e SEMICOLON
         System.err.println("Statement parsed as expression!");
         RESULT = new ExpressionStatementNode(e);
     :}
-            | выход expr:e SEMICOLON
+            | ВЫХОД expr:e SEMICOLON
     {:
         System.err.println("Statement parsed as print!");
         RESULT = new PrintStatementNode(e);
@@ -192,7 +192,7 @@ expr      ::= expr:e1 PLUS expr:e2
         System.err.println("Expression parsed as plus!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "+");
     :}
-            | expr:e1 MINUS expr:e2
+            | expr:e1 МИНУС expr:e2
     {:
         System.err.println("Expression parsed as minus!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "-");

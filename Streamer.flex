@@ -42,9 +42,9 @@ num
     {
         return makeSym(sym.NUMTYPE);
     }
-text
+текст
     {
-        return makeSym(sym.TEXTTYPE);
+        return makeSym(sym.ТЕКСТ);
     }
 bool
     {
@@ -66,9 +66,9 @@ false
     {
         return makeSym(sym.FALSE);
     }
-print
+выход
     {
-        return makeSym(sym.PRINT);
+        return makeSym(sym.ВЫХОД);
     }
 input
     {
@@ -140,7 +140,7 @@ default
     }
 (\-)
     {
-        return makeSym(sym.MINUS);
+        return makeSym(sym.МИНУС);
     }
 (\*)
     {
