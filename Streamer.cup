@@ -19,20 +19,14 @@ public void report_fatal_error(String message, Object info) {
 
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
-<<<<<<< HEAD
 terminal ЕНДЛ, РАВНО, ПЛЮС, МИНУС, TIMES, DIVIDE, MOD;
-terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
-=======
-terminal ЕНДЛ, РАВНО, ПЛЮС, MINUS, TIMES, DIVIDE, MOD;
 terminal И,ИЛИ, НЕТ, РОВНЯ, LT, GT, LEQ, GEQ;
->>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
 terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, VOIDTYPE, LISTTYPE;
 terminal ПРАВДА, ЛОЖЬ;
-
 terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
@@ -56,13 +50,8 @@ non terminal CaseNode case;
 
 /* Precedences */
 precedence right РАВНО;
-<<<<<<< HEAD
-precedence left EQUALS;
-precedence left ПЛЮС, МИНУС;
-=======
 precedence left  РОВНЯ;
-precedence left ПЛЮС, MINUS;
->>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
+precedence left ПЛЮС, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
 precedence left ИЛИ;
 precedence left И;

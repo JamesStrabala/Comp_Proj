@@ -136,11 +136,7 @@ default
     }
 (\+)
     {
-<<<<<<< HEAD
 
-=======
->>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
-        return makeSym(sym.ПЛЮС);
     }
 (\-)
     {

@@ -752,7 +752,11 @@ private Symbol makeSym(int type) {
             // fall through
           case 59: break;
           case 6: 
-            { 
+            { <<<<<<< HEAD
+
+=======
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
+        return makeSym(sym.ПЛЮС);
             } 
             // fall through
           case 60: break;
