@@ -19,7 +19,7 @@ public void report_fatal_error(String message, Object info) {
 
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
-terminal ЕНДЛ, РАВНО, плюс, МИНУС, TIMES, DIVIDE, MOD;
+terminal ЕНДЛ, РАВНО, ПЛЮС, МИНУС, TIMES, DIVIDE, MOD;
 terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
 terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
@@ -52,7 +52,7 @@ non terminal CaseNode case;
 /* Precedences */
 precedence right РАВНО;
 precedence left EQUALS;
-precedence left плюс, МИНУС;
+precedence left ПЛЮС, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
 precedence left ИЛИ;
 precedence left И;
@@ -189,9 +189,11 @@ stmt      ::= expr:e ЕНДЛ
 :}
 ;
 
-expr      ::= expr:e1 плюс expr:e2
+
+expr      ::= expr:e1 ПЛЮС expr:e2
+
     {:
-        System.err.println("Expression parsed as plus!");
+        System.err.println("Expression parsed as плюс!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "+");
     :}
             | expr:e1 МИНУС expr:e2
