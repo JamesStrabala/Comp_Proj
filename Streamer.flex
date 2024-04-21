@@ -46,9 +46,9 @@ num
     {
         return makeSym(sym.ТЕКСТ);
     }
-bool
+логизнач
     {
-        return makeSym(sym.BOOLTYPE);
+        return makeSym(sym.ЛОГИЗНАЧ);
     }
 void
     {

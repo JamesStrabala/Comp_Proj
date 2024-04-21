@@ -25,7 +25,7 @@ terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
-terminal NUMTYPE,  ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
+terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, VOIDTYPE, LISTTYPE;
 terminal ПРАВДА, ЛОЖЬ;
 
 terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
@@ -314,9 +314,9 @@ type      ::= NUMTYPE
         System.err.println("Type parsed as ТЕКСТ!");
         RESULT = new TypeNode("текст");
     :}
-            | BOOLTYPE
+            | ЛОГИЗНАЧ
     {:
-        System.err.println("Type parsed as BOOL!");
+        System.err.println("Type parsed as ЛОГИЗНАЧ!");
         RESULT = new TypeNode("bool");
     :}
             | VOIDTYPE
