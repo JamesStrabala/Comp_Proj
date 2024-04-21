@@ -244,7 +244,7 @@ default
 
 
 /* values */
-{DIGIT}+(\.{DIGIT}+)?
+{DIGIT}+(,{DIGIT}+)?
     {
         return makeSym(sym.ЦЕЛ, yytext());
     }
