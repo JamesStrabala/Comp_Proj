@@ -238,7 +238,7 @@ default
         return makeSym(sym.CLOSEFILTER);
     }
 /* use periods instead of semicolons */
-(.)
+(\.)
     {
         return makeSym(sym.ЕНДЛ);
     }
