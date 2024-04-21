@@ -54,9 +54,9 @@ void
     {
         return makeSym(sym.VOIDTYPE);
     }
-list
+список
     {
-        return makeSym(sym.LISTTYPE);
+        return makeSym(sym.СПИСОК);
     }
 true
     {

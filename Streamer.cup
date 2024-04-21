@@ -51,11 +51,11 @@ non terminal CaseNode case;
 
 /* Precedences */
 precedence right РАВНО;
-precedence left EQUALS;
+precedence right EQUALS;
 precedence left ПЛЮС, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
 precedence left ИЛИ;
-precedence left И;
+precedence right И;
 precedence right НЕТ;
 
 /* The grammar rules */
