@@ -25,7 +25,7 @@ terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
-terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, НИЧЕГО, СПИСОК;
+terminal НОМЕРА,  ТЕКСТ, ЛОГИЗНАЧ, НИЧЕГО, СПИСОК;
 terminal ПРАВДА, ЛОЖЬ;
 terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, ФАНК;
 terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
@@ -50,7 +50,7 @@ non terminal CaseNode case;
 
 /* Precedences */
 precedence right РАВНО;
-precedence left  РОВНЯ;
+precedence left  РОВНЯ, LEQ, GEQ;
 precedence left ПЛЮС, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
 precedence left ИЛИ;
@@ -285,6 +285,16 @@ expr      ::= expr:e1 ПЛЮС expr:e2
         System.err.println("Expression parsed as mod!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "==");
     :}
+            | expr:e1  LEQ expr:e2
+    {:
+        System.err.println("Expression parsed as less or equal!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "<=");
+    :}
+            | expr:e1  GEQ expr:e2
+    {:
+        System.err.println("Expression parsed as greater or equal!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, ">=");
+    :}
 ;
 expr_list ::= expr:e ПОЛОСРАСКОЛ expr_list:el
     {:
@@ -303,7 +313,7 @@ expr_list ::= expr:e ПОЛОСРАСКОЛ expr_list:el
         RESULT = new ExpressionListNode();
     :}
 ;
-type      ::= NUMTYPE
+type      ::= НОМЕРА
     {:
         System.err.println("Type parsed as ЦЕЛ!");
         RESULT = new TypeNode("цел");

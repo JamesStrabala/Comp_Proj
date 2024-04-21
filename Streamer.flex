@@ -38,9 +38,9 @@ WS     = (\r|\n|\r\n) | [ \t\f]
 %%
 
 /* keywords */
-num
+номера
     {
-        return makeSym(sym.NUMTYPE);
+        return makeSym(sym.НОМЕРА);
     }
 текст
     {

@@ -26,11 +26,11 @@ public interface sym {
   public static final int ПРАВДА = 34;
   public static final int OPENFILTER = 27;
   public static final int LT = 13;
-  public static final int NUMTYPE = 29;
   public static final int ЕНДЛ = 2;
   public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
+  public static final int НОМЕРА = 29;
   public static final int ЕЩЕ = 43;
   public static final int EOF = 0;
   public static final int RETURN = 47;
@@ -90,7 +90,7 @@ public interface sym {
   "WRITEFILE",
   "OPENFILTER",
   "CLOSEFILTER",
-  "NUMTYPE",
+  "НОМЕРА",
   "ТЕКСТ",
   "ЛОГИЗНАЧ",
   "НИЧЕГО",
