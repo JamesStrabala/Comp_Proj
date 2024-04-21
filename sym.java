@@ -31,7 +31,7 @@ public interface sym {
   public static final int UNTIL = 40;
   public static final int GEQ = 16;
   public static final int EXIT = 39;
-  public static final int PLUS = 4;
+  public static final int плюс = 4;
   public static final int IF = 43;
   public static final int EOF = 0;
   public static final int RETURN = 48;
@@ -66,7 +66,7 @@ public interface sym {
   "error",
   "ЕНДЛ",
   "РАВНО",
-  "PLUS",
+  "плюс",
   "MINUS",
   "TIMES",
   "DIVIDE",

@@ -732,7 +732,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 56: break;
           case 4: 
-            { return makeSym(sym.PLUS);
+            { return makeSym(sym.плюс);
             } 
             // fall through
           case 57: break;

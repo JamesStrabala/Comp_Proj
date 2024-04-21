@@ -136,7 +136,7 @@ default
     }
 (\+)
     {
-        return makeSym(sym.PLUS);
+        return makeSym(sym.плюс);
     }
 (\-)
     {
