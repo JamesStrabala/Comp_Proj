@@ -912,11 +912,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-<<<<<<< HEAD
-          case 23: // expr ::= expr плюс expr 
-=======
           case 23: // expr ::= expr ПЛЮС expr 
->>>>>>> 8d99b32 (SomeComment)
             {
               ExpressionNode RESULT =null;
 		int e1left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;

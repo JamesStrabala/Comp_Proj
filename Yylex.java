@@ -732,10 +732,10 @@ private Symbol makeSym(int type) {
             // fall through
           case 56: break;
           case 4: 
-<<<<<<< HEAD
-            { return makeSym(sym.плюс);
+            { <<<<<<< HEAD
+        return makeSym(sym.плюс);
 =======
-            { return makeSym(sym.ПЛЮС);
+        return makeSym(sym.ПЛЮС);
 >>>>>>> 8d99b32 (SomeComment)
             } 
             // fall through
