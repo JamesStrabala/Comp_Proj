@@ -9,6 +9,7 @@ public interface sym {
   public static final int ИД = 53;
   public static final int DIVIDE = 7;
   public static final int QSTRING = 54;
+  public static final int ВЫХОД = 37;
   public static final int OPENSQBRACE = 21;
   public static final int EQUALS = 12;
   public static final int INPUT = 38;
@@ -16,6 +17,7 @@ public interface sym {
   public static final int FOR = 45;
   public static final int MINUS = 5;
   public static final int CLOSEPAREN = 20;
+  public static final int ПРАВДА = 35;
   public static final int READFILE = 25;
   public static final int LISTTYPE = 34;
   public static final int OPENFILTER = 27;
@@ -33,7 +35,6 @@ public interface sym {
   public static final int EOF = 0;
   public static final int RETURN = 48;
   public static final int TEXTTYPE = 30;
-  public static final int TRUE = 35;
   public static final int error = 1;
   public static final int РАВНО = 3;
   public static final int MOD = 8;
@@ -53,13 +54,12 @@ public interface sym {
   public static final int DEFAULT = 51;
   public static final int ТЕКСТ = 31;
   public static final int LEQ = 15;
+  public static final int ЛОЖЬ = 36;
   public static final int WRITEFILE = 26;
-  public static final int FALSE = 36;
   public static final int CLOSESQBRACE = 22;
   public static final int НЕТ = 11;
   public static final int GT = 14;
   public static final int ЦЕЛ = 52;
-  public static final int выход = 37;
   public static final int И = 9;
   public static final String[] terminalNames = new String[] {
   "EOF",
@@ -97,9 +97,9 @@ public interface sym {
   "BOOLTYPE",
   "VOIDTYPE",
   "LISTTYPE",
-  "TRUE",
-  "FALSE",
-  "выход",
+  "ПРАВДА",
+  "ЛОЖЬ",
+  "ВЫХОД",
   "INPUT",
   "EXIT",
   "UNTIL",

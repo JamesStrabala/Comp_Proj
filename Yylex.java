@@ -892,7 +892,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 88: break;
           case 36: 
-            { return makeSym(sym.TRUE);
+            { return makeSym(sym.ПРАВДА);
             } 
             // fall through
           case 89: break;
@@ -952,12 +952,12 @@ private Symbol makeSym(int type) {
             // fall through
           case 100: break;
           case 48: 
-            { return makeSym(sym.FALSE);
+            { return makeSym(sym.ЛОЖЬ);
             } 
             // fall through
           case 101: break;
           case 49: 
-            { return makeSym(sym.выход);
+            { return makeSym(sym.ВЫХОД);
             } 
             // fall through
           case 102: break;

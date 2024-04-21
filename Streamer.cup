@@ -26,8 +26,8 @@ terminal OPENPAREN, CLOSEPAREN;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE, TEXTTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
-terminal TRUE, FALSE;
-terminal выход, INPUT, EXIT, UNTIL, ERROR, FUNC;
+terminal ПРАВДА, ЛОЖЬ;
+terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
@@ -103,7 +103,7 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as expression!");
         RESULT = new ExpressionStatementNode(e);
     :}
-            | выход expr:e ЕНДЛ 
+            | ВЫХОД expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as print!");
         RESULT = new PrintStatementNode(e);
@@ -222,15 +222,15 @@ expr      ::= expr:e1 PLUS expr:e2
         System.err.println("Expression parsed as QSTRING!");
         RESULT = new StringExpressionNode(s);
     :}
-            | FALSE
+            | ЛОЖЬ:ложь
     {:
-        System.err.println("Expression parsed as FALSE!");
-        RESULT = new BoolExpressionNode(false);
+        System.err.println("Expression parsed as ЛОЖЬ!");
+        RESULT = new BoolExpressionNode(ложь);
     :}
-            | TRUE
+            | ПРАВДА:правда
     {:
-        System.err.println("Expression parsed as TRUE!");
-        RESULT = new BoolExpressionNode(true);
+        System.err.println("Expression parsed as ПРАВДА!");
+        RESULT = new BoolExpressionNode(правда);
     :}
             | НЕТ expr:e
     {:

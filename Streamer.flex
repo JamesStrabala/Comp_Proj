@@ -60,15 +60,15 @@ list
     }
 true
     {
-        return makeSym(sym.TRUE);
+        return makeSym(sym.ПРАВДА);
     }
 false
     {
-        return makeSym(sym.FALSE);
+        return makeSym(sym.ЛОЖЬ);
     }
 print
     {
-        return makeSym(sym.выход);
+        return makeSym(sym.ВЫХОД);
     }
 input
     {
