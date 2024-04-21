@@ -30,7 +30,7 @@ public interface sym {
   public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
-  public static final int EXIT = 38;
+  public static final int НАЗАД = 38;
   public static final int ЕЩЕ = 43;
   public static final int EOF = 0;
   public static final int RETURN = 47;

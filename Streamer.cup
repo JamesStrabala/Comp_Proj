@@ -27,7 +27,7 @@ terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, VOIDTYPE, СПИСОК;
 terminal ПРАВДА, ЛОЖЬ;
-terminal ВЫХОД, INPUT, EXIT, UNTIL, ОШИБКА, FUNC;
+terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, FUNC;
 terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
@@ -136,7 +136,7 @@ stmt      ::= expr:e ЕНДЛ
         ReadStatementNode assignment = new ReadStatementNode(и, e);
         RESULT = new DeclarationStatementNode(t, и, assignment);
 :}
-            | EXIT expr:e ЕНДЛ 
+            | НАЗАД expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as Exit!"); 
         RESULT = new ExitStatementNode(e);

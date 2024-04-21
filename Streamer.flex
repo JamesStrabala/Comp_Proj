@@ -74,9 +74,9 @@ input
     {
         return makeSym(sym.INPUT);
     }
-exit
+назад
     {
-        return makeSym(sym.EXIT);
+        return makeSym(sym.НАЗАД);
     }
 until
     {
