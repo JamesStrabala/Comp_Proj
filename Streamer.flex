@@ -136,7 +136,11 @@ default
     }
 (\+)
     {
+<<<<<<< HEAD
 
+=======
+        return makeSym(sym.ПЛЮС);
+>>>>>>> main
     }
 (\-)
     {
