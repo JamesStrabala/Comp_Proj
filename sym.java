@@ -40,7 +40,6 @@ public interface sym {
   public static final int BREAK = 46;
   public static final int CLOSEFILTER = 28;
   public static final int ЕСЛИ = 42;
-  public static final int ERROR = 40;
   public static final int SWITCH = 48;
   public static final int ИЛИ = 10;
   public static final int TIMES = 6;
@@ -60,6 +59,7 @@ public interface sym {
   public static final int ЦЕЛ = 51;
   public static final int И = 9;
   public static final int ЗАПСКОБКА = 20;
+  public static final int ОШИБКА = 40;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -101,7 +101,7 @@ public interface sym {
   "INPUT",
   "EXIT",
   "UNTIL",
-  "ERROR",
+  "ОШИБКА",
   "FUNC",
   "ЕСЛИ",
   "ЕЩЕ",

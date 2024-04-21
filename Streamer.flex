@@ -82,9 +82,9 @@ until
     {
         return makeSym(sym.UNTIL);
     }
-error
+ошибка
     {
-        return makeSym(sym.ERROR);
+        return makeSym(sym.ОШИБКА);
     }
 funk
     {
