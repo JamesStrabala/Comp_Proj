@@ -20,7 +20,7 @@ public void report_fatal_error(String message, Object info) {
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
 terminal ЕНДЛ, РАВНО, ПЛЮС, MINUS, TIMES, DIVIDE, MOD;
-terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
+terminal И,ИЛИ, НЕТ, РОВНЯ, LT, GT, LEQ, GEQ;
 terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
@@ -28,7 +28,7 @@ terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFI
 terminal NUMTYPE, TEXTTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
 terminal ПРАВДА, ЛОЖЬ;
 terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
-terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
+terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
 
@@ -50,7 +50,7 @@ non terminal CaseNode case;
 
 /* Precedences */
 precedence right РАВНО;
-precedence left EQUALS;
+precedence left  РОВНЯ;
 precedence left ПЛЮС, MINUS;
 precedence left TIMES, DIVIDE, MOD;
 precedence left ИЛИ;
@@ -164,12 +164,12 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as a File write!");
         RESULT = new FileWriteNode(e,e2);
 :}
-            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
+            | ЕСЛИ ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s);
 :}
-            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ ELSE ОТКУДРЯВЫЙ stmt_list:s2 ЗАПКУДРЯВЫЙ
+            | ЕСЛИ ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ ЕЩЕ ОТКУДРЯВЫЙ stmt_list:s2 ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s,s2);
@@ -279,7 +279,7 @@ expr      ::= expr:e1 ПЛЮС expr:e2
         System.err.println("Expression parsed as list filter!");
         RESULT = new ListFiltNode(и,e);
     :}
-            | expr:e1 EQUALS expr:e2
+            | expr:e1  РОВНЯ expr:e2
     {:
         System.err.println("Expression parsed as mod!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "==");

@@ -92,11 +92,11 @@ funk
     }
 if
     {
-        return makeSym(sym.IF);
+        return makeSym(sym.ЕСЛИ);
     }
 else
     {
-        return makeSym(sym.ELSE);
+        return makeSym(sym.ЕЩЕ);
     }
 for
     {
@@ -104,7 +104,7 @@ for
     }
 while
     {
-        return makeSym(sym.WHILE);
+        return makeSym(sym.ДО);
     }
 break
     {
@@ -136,11 +136,7 @@ default
     }
 (\+)
     {
-<<<<<<< HEAD
-        return makeSym(sym.плюс);
-=======
         return makeSym(sym.ПЛЮС);
->>>>>>> 8d99b32 (SomeComment)
     }
 (\-)
     {
@@ -172,7 +168,7 @@ default
     }
 (\=\=)
     {
-        return makeSym(sym.EQUALS);
+        return makeSym(sym.РОВНЯ);
     }
 (\<)
     {
@@ -241,7 +237,7 @@ default
         return makeSym(sym.CLOSEFILTER);
     }
 /* use periods instead of semicolons */
-(.)
+(\.)
     {
         return makeSym(sym.ЕНДЛ);
     }
