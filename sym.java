@@ -16,9 +16,9 @@ public interface sym {
   public static final int INPUT = 38;
   public static final int CASE = 50;
   public static final int ОТКУДРЯВЫЙ = 17;
+  public static final int ЗАПКУДРЯВЫЙ = 18;
   public static final int FOR = 45;
   public static final int MINUS = 5;
-  public static final int CLOSEPAREN = 20;
   public static final int ПРАВДА = 35;
   public static final int READFILE = 25;
   public static final int LISTTYPE = 34;
@@ -41,7 +41,6 @@ public interface sym {
   public static final int MOD = 8;
   public static final int BREAK = 47;
   public static final int CLOSEFILTER = 28;
-  public static final int CLOSECURLY = 18;
   public static final int ERROR = 41;
   public static final int SWITCH = 49;
   public static final int ИЛИ = 10;
@@ -61,6 +60,7 @@ public interface sym {
   public static final int GT = 14;
   public static final int ЦЕЛ = 52;
   public static final int И = 9;
+  public static final int ЗАПСКОБКА = 20;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -80,9 +80,9 @@ public interface sym {
   "LEQ",
   "GEQ",
   "ОТКУДРЯВЫЙ",
-  "CLOSECURLY",
+  "ЗАПКУДРЯВЫЙ",
   "ОТСКОБКА",
-  "CLOSEPAREN",
+  "ЗАПСКОБКА",
   "OPENSQBRACE",
   "CLOSESQBRACE",
   "ПОЛОСРАСКОЛ",

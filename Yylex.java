@@ -777,7 +777,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 65: break;
           case 13: 
-            { return makeSym(sym.CLOSECURLY);
+            { return makeSym(sym.ЗАПКУДРЯВЫЙ);
             } 
             // fall through
           case 66: break;
@@ -787,7 +787,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 67: break;
           case 15: 
-            { return makeSym(sym.CLOSEPAREN);
+            { return makeSym(sym.ЗАПСКОБКА);
             } 
             // fall through
           case 68: break;

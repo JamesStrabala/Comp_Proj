@@ -21,8 +21,8 @@ public void report_fatal_error(String message, Object info) {
 /* This is what generates sym.java! */
 terminal ЕНДЛ, РАВНО, PLUS, MINUS, TIMES, DIVIDE, MOD;
 terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
-terminal ОТКУДРЯВЫЙ, CLOSECURLY;
-terminal ОТСКОБКА, CLOSEPAREN;
+terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
+terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE, TEXTTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
@@ -65,7 +65,7 @@ program ::= func_list:f stmt_list:s
     :}
 ;
 
-funkyboi  ::= FUNC type:t ИД:и  ОТСКОБКА pl:p CLOSEPAREN ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY
+funkyboi  ::= FUNC type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
 {:
          System.err.println("Funk parsed!");
 	RESULT = new FunkNode(t,и,p,s);
@@ -124,7 +124,7 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as a declaration!");
         RESULT = new DeclarationStatementNode(t, и);
     :}
-            | ERROR ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY
+            | ERROR ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as an error statement!");
         RESULT = new ErrorStatementNode(s);
@@ -145,14 +145,14 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as Return!");
         RESULT = new ReturnStatementNode(e);
 :}
-            | UNTIL type:t ИД:и READFILE expr:e ЕНДЛ  ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY
+            | UNTIL type:t ИД:и READFILE expr:e ЕНДЛ  ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as until!");
         ReadStatementNode assignment = new ReadStatementNode(и, e);
         DeclarationStatementNode ds = new DeclarationStatementNode(t, и, assignment);
 	RESULT = new UntilStatementNode(ds, s);
 :}
-            | UNTIL type:t ИД:и РАВНО expr:e ЕНДЛ ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY
+            | UNTIL type:t ИД:и РАВНО expr:e ЕНДЛ ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as until!");
         AssignStatementNode assignment = new AssignStatementNode(и, e);
@@ -164,22 +164,22 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as a File write!");
         RESULT = new FileWriteNode(e,e2);
 :}
-            | IF ОТСКОБКА expr:e CLOSEPAREN ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY
+            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s);
 :}
-            | IF ОТСКОБКА expr:e CLOSEPAREN ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY ELSE ОТКУДРЯВЫЙ stmt_list:s2 CLOSECURLY
+            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ ELSE ОТКУДРЯВЫЙ stmt_list:s2 ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s,s2);
 :}
-            | FOR ОТСКОБКА  type:t ИД:и COLON  ИД:и2 CLOSEPAREN ОТКУДРЯВЫЙ stmt_list:s CLOSECURLY
+            | FOR ОТСКОБКА  type:t ИД:и COLON  ИД:и2 ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as for!");
         RESULT = new ForStateNode(t, и, new IdExpressionNode(и2), s);
 :}
-            | SWITCH ОТСКОБКА expr:e CLOSEPAREN ОТКУДРЯВЫЙ cl:cas dc:d CLOSECURLY
+            | SWITCH ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ cl:cas dc:d ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as switch!");
 	cas.addDefault(d);
@@ -237,12 +237,12 @@ expr      ::= expr:e1 PLUS expr:e2
         System.err.println("Expression parsed as НЕТ!");
         RESULT = new NotExpressionNode(e);
     :}
-            |  ОТКУДРЯВЫЙ expr_list:el CLOSECURLY
+            |  ОТКУДРЯВЫЙ expr_list:el ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Expression parsed as list!");
         RESULT = el;
     :}
-            | ИД:и ОТСКОБКА  expr_list:el CLOSEPAREN
+            | ИД:и ОТСКОБКА  expr_list:el ЗАПСКОБКА
     {:
         System.err.println("Expression parsed as Funk Kall!");
         RESULT = new FunkKallNode(и,el);

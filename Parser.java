@@ -516,7 +516,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 2: // funkyboi ::= FUNC type ИД ОТСКОБКА pl CLOSEPAREN ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 2: // funkyboi ::= FUNC type ИД ОТСКОБКА pl ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               FunkNode RESULT =null;
 		int tleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).left;
@@ -690,7 +690,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 12: // stmt ::= ERROR ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 12: // stmt ::= ERROR ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int sleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
@@ -757,7 +757,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 16: // stmt ::= UNTIL type ИД READFILE expr ЕНДЛ ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 16: // stmt ::= UNTIL type ИД READFILE expr ЕНДЛ ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int tleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).left;
@@ -783,7 +783,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // stmt ::= UNTIL type ИД РАВНО expr ЕНДЛ ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 17: // stmt ::= UNTIL type ИД РАВНО expr ЕНДЛ ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int tleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).left;
@@ -827,7 +827,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 19: // stmt ::= IF ОТСКОБКА expr CLOSEPAREN ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 19: // stmt ::= IF ОТСКОБКА expr ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-4)).left;
@@ -845,7 +845,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 20: // stmt ::= IF ОТСКОБКА expr CLOSEPAREN ОТКУДРЯВЫЙ stmt_list CLOSECURLY ELSE ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 20: // stmt ::= IF ОТСКОБКА expr ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ ELSE ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-8)).left;
@@ -866,7 +866,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 21: // stmt ::= FOR ОТСКОБКА type ИД COLON ИД CLOSEPAREN ОТКУДРЯВЫЙ stmt_list CLOSECURLY 
+          case 21: // stmt ::= FOR ОТСКОБКА type ИД COLON ИД ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int tleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-7)).left;
@@ -890,7 +890,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 22: // stmt ::= SWITCH ОТСКОБКА expr CLOSEPAREN ОТКУДРЯВЫЙ cl dc CLOSECURLY 
+          case 22: // stmt ::= SWITCH ОТСКОБКА expr ЗАПСКОБКА ОТКУДРЯВЫЙ cl dc ЗАПКУДРЯВЫЙ 
             {
               StatementNode RESULT =null;
 		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-5)).left;
@@ -1074,7 +1074,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 33: // expr ::= ОТКУДРЯВЫЙ expr_list CLOSECURLY 
+          case 33: // expr ::= ОТКУДРЯВЫЙ expr_list ЗАПКУДРЯВЫЙ 
             {
               ExpressionNode RESULT =null;
 		int elleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
@@ -1089,7 +1089,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 34: // expr ::= ИД ОТСКОБКА expr_list CLOSEPAREN 
+          case 34: // expr ::= ИД ОТСКОБКА expr_list ЗАПСКОБКА 
             {
               ExpressionNode RESULT =null;
 		int иleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;

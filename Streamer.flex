@@ -192,7 +192,7 @@ default
     }
 (\})
     {
-        return makeSym(sym.CLOSECURLY);
+        return makeSym(sym.ЗАПКУДРЯВЫЙ);
     }
 (\()
     {
@@ -200,7 +200,7 @@ default
     }
 (\))
     {
-        return makeSym(sym.CLOSEPAREN);
+        return makeSym(sym.ЗАПСКОБКА);
     }
 (\[)
     {
