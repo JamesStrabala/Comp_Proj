@@ -34,6 +34,7 @@ class Yylex implements java_cup.runtime.Scanner {
    * Translates characters to character classes
    */
   private static final String ZZ_CMAP_PACKED = 
+<<<<<<< HEAD
     "\11\0\1\5\1\4\1\103\1\104\1\3\22\0\1\5\1\63\1\101"+
     "\2\0\1\60\1\61\1\0\1\70\1\71\1\56\1\54\1\100\1\55"+
     "\1\77\1\57\12\1\1\75\1\74\1\64\1\53\1\65\1\76\1\0"+
@@ -44,6 +45,16 @@ class Yylex implements java_cup.runtime.Scanner {
     "\1\17\1\43\1\12\1\2\1\21\1\20\1\2\1\13\1\15\1\2"+
     "\1\22\1\16\2\2\1\14\1\11\2\2\1\42\1\2\1\24\3\2"+
     "\1\41\4\2\u1bd8\0\1\103\1\103\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+=======
+    "\11\0\1\5\1\4\1\63\1\64\1\3\22\0\1\5\1\43\1\61"+
+    "\2\0\1\40\1\41\1\0\1\50\1\51\1\36\1\34\1\60\1\35"+
+    "\1\57\1\37\12\1\1\55\1\54\1\44\1\33\1\45\1\56\1\0"+
+    "\32\2\1\52\1\62\1\53\3\0\1\25\1\14\1\32\1\21\1\12"+
+    "\1\24\1\2\1\31\1\20\1\2\1\27\1\16\1\10\1\6\1\15"+
+    "\1\26\1\2\1\23\1\22\1\11\1\7\1\17\1\30\1\13\2\2"+
+    "\1\46\1\42\1\47\7\0\1\63\u038a\0\100\2\u1bd8\0\1\63\1\63"+
+    "\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\uffff\0\udfe6\0";
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
 
   /** 
    * Translates characters to character classes
@@ -56,6 +67,7 @@ class Yylex implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ACTION = zzUnpackAction();
 
   private static final String ZZ_ACTION_PACKED_0 =
+<<<<<<< HEAD
     "\1\0\1\1\1\2\1\3\2\4\21\3\1\5\1\6"+
     "\1\7\1\10\1\11\1\12\2\1\1\13\1\14\1\15"+
     "\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25"+
@@ -69,6 +81,21 @@ class Yylex implements java_cup.runtime.Scanner {
 
   private static int [] zzUnpackAction() {
     int [] result = new int[140];
+=======
+    "\1\0\1\1\1\2\1\3\2\4\17\3\1\5\1\6"+
+    "\1\7\1\10\1\11\1\12\2\1\1\13\1\14\1\15"+
+    "\1\16\1\17\1\20\1\21\1\22\1\23\1\24\1\25"+
+    "\1\1\1\26\1\1\1\0\14\3\1\27\11\3\1\30"+
+    "\1\31\1\32\1\33\1\34\1\35\1\36\1\37\1\40"+
+    "\1\0\1\41\1\0\1\2\1\42\17\3\1\43\5\3"+
+    "\1\44\1\45\1\46\1\47\1\3\1\50\1\3\1\51"+
+    "\1\52\4\3\1\53\3\3\1\54\1\55\1\56\1\57"+
+    "\1\60\3\3\1\61\1\62\1\63\1\3\1\64\1\65"+
+    "\1\66";
+
+  private static int [] zzUnpackAction() {
+    int [] result = new int[133];
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
     int offset = 0;
     offset = zzUnpackAction(ZZ_ACTION_PACKED_0, offset, result);
     return result;
@@ -93,6 +120,7 @@ class Yylex implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ROWMAP = zzUnpackRowMap();
 
   private static final String ZZ_ROWMAP_PACKED_0 =
+<<<<<<< HEAD
     "\0\0\0\105\0\212\0\317\0\u0114\0\105\0\u0159\0\u019e"+
     "\0\u01e3\0\u0228\0\u026d\0\u02b2\0\u02f7\0\u033c\0\u0381\0\u03c6"+
     "\0\u040b\0\u0450\0\u0495\0\u04da\0\u051f\0\u0564\0\u05a9\0\u05ee"+
@@ -114,6 +142,28 @@ class Yylex implements java_cup.runtime.Scanner {
 
   private static int [] zzUnpackRowMap() {
     int [] result = new int[140];
+=======
+    "\0\0\0\65\0\152\0\237\0\324\0\65\0\u0109\0\u013e"+
+    "\0\u0173\0\u01a8\0\u01dd\0\u0212\0\u0247\0\u027c\0\u02b1\0\u02e6"+
+    "\0\u031b\0\u0350\0\u0385\0\u03ba\0\u03ef\0\u0424\0\65\0\65"+
+    "\0\65\0\65\0\65\0\u0459\0\u048e\0\65\0\u04c3\0\u04f8"+
+    "\0\65\0\65\0\65\0\65\0\u052d\0\65\0\65\0\65"+
+    "\0\u0562\0\65\0\u0597\0\u05cc\0\u0601\0\u0636\0\u066b\0\u06a0"+
+    "\0\u06d5\0\u070a\0\u073f\0\u0774\0\u07a9\0\u07de\0\u0813\0\u0848"+
+    "\0\237\0\u087d\0\u08b2\0\u08e7\0\u091c\0\u0951\0\u0986\0\u09bb"+
+    "\0\u09f0\0\u0a25\0\65\0\65\0\65\0\65\0\65\0\65"+
+    "\0\65\0\65\0\65\0\u0597\0\65\0\u0a5a\0\u05cc\0\237"+
+    "\0\u0a8f\0\u0ac4\0\u0af9\0\u0b2e\0\u0b63\0\u0b98\0\u0bcd\0\u0c02"+
+    "\0\u0c37\0\u0c6c\0\u0ca1\0\u0cd6\0\u0d0b\0\u0d40\0\u0d75\0\237"+
+    "\0\u0daa\0\u0ddf\0\u0e14\0\u0e49\0\u0e7e\0\237\0\237\0\237"+
+    "\0\237\0\u0eb3\0\237\0\u0ee8\0\237\0\237\0\u0f1d\0\u0f52"+
+    "\0\u0f87\0\u0fbc\0\237\0\u0ff1\0\u1026\0\u105b\0\237\0\237"+
+    "\0\237\0\237\0\237\0\u1090\0\u10c5\0\u10fa\0\237\0\237"+
+    "\0\237\0\u112f\0\237\0\237\0\237";
+
+  private static int [] zzUnpackRowMap() {
+    int [] result = new int[133];
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
     int offset = 0;
     offset = zzUnpackRowMap(ZZ_ROWMAP_PACKED_0, offset, result);
     return result;
@@ -137,6 +187,7 @@ class Yylex implements java_cup.runtime.Scanner {
 
   private static final String ZZ_TRANS_PACKED_0 =
     "\1\2\1\3\1\4\1\5\2\6\1\7\1\10\1\4"+
+<<<<<<< HEAD
     "\1\11\3\4\1\12\7\4\1\13\1\4\1\14\1\15"+
     "\1\16\1\17\1\20\1\21\1\22\1\23\1\4\1\24"+
     "\6\4\1\25\1\4\1\26\1\27\1\30\1\31\1\32"+
@@ -209,6 +260,75 @@ class Yylex implements java_cup.runtime.Scanner {
 
   private static int [] zzUnpackTrans() {
     int [] result = new int[6279];
+=======
+    "\1\11\1\12\1\4\1\13\1\4\1\14\1\15\1\16"+
+    "\1\17\1\20\1\21\1\22\1\4\1\23\1\4\1\24"+
+    "\1\4\1\25\1\26\1\27\1\30\1\31\1\32\1\33"+
+    "\1\34\1\35\1\36\1\37\1\40\1\41\1\42\1\43"+
+    "\1\44\1\45\1\46\1\47\1\50\1\51\1\52\1\2"+
+    "\1\53\1\2\1\0\1\6\66\0\1\3\56\0\1\54"+
+    "\5\0\2\4\3\0\25\4\36\0\1\6\61\0\2\4"+
+    "\3\0\1\4\1\55\23\4\33\0\2\4\3\0\1\56"+
+    "\24\4\33\0\2\4\3\0\4\4\1\57\10\4\1\60"+
+    "\7\4\33\0\2\4\3\0\5\4\1\61\2\4\1\62"+
+    "\4\4\1\63\7\4\33\0\2\4\3\0\7\4\1\64"+
+    "\5\4\1\65\7\4\33\0\2\4\3\0\12\4\1\66"+
+    "\12\4\33\0\2\4\3\0\7\4\1\67\15\4\33\0"+
+    "\2\4\3\0\1\70\15\4\1\71\6\4\33\0\2\4"+
+    "\3\0\4\4\1\72\20\4\33\0\2\4\3\0\22\4"+
+    "\1\73\2\4\33\0\2\4\3\0\4\4\1\74\20\4"+
+    "\33\0\2\4\3\0\1\4\1\75\5\4\1\76\7\4"+
+    "\1\77\5\4\33\0\2\4\3\0\15\4\1\100\7\4"+
+    "\33\0\2\4\3\0\23\4\1\101\1\4\33\0\2\4"+
+    "\3\0\17\4\1\102\5\4\65\0\1\103\72\0\1\104"+
+    "\65\0\1\105\55\0\1\106\10\0\1\107\53\0\1\110"+
+    "\11\0\1\111\75\0\1\112\61\0\1\113\11\0\61\114"+
+    "\1\115\1\116\2\114\1\0\1\117\64\0\2\4\3\0"+
+    "\2\4\1\120\22\4\33\0\2\4\3\0\3\4\1\121"+
+    "\21\4\33\0\2\4\3\0\5\4\1\122\17\4\33\0"+
+    "\2\4\3\0\1\4\1\123\23\4\33\0\2\4\3\0"+
+    "\12\4\1\124\12\4\33\0\2\4\3\0\14\4\1\125"+
+    "\10\4\33\0\2\4\3\0\15\4\1\126\7\4\33\0"+
+    "\2\4\3\0\7\4\1\127\15\4\33\0\2\4\3\0"+
+    "\4\4\1\130\20\4\33\0\2\4\3\0\14\4\1\131"+
+    "\10\4\33\0\2\4\3\0\12\4\1\132\12\4\33\0"+
+    "\2\4\3\0\20\4\1\133\4\4\33\0\2\4\3\0"+
+    "\16\4\1\134\6\4\33\0\2\4\3\0\12\4\1\135"+
+    "\12\4\33\0\2\4\3\0\3\4\1\136\21\4\33\0"+
+    "\2\4\3\0\1\137\24\4\33\0\2\4\3\0\15\4"+
+    "\1\140\7\4\33\0\2\4\3\0\10\4\1\141\14\4"+
+    "\33\0\2\4\3\0\12\4\1\142\12\4\33\0\2\4"+
+    "\3\0\12\4\1\143\12\4\33\0\2\4\3\0\14\4"+
+    "\1\144\10\4\32\0\3\114\2\0\56\114\3\0\2\4"+
+    "\3\0\12\4\1\145\12\4\33\0\2\4\3\0\3\4"+
+    "\1\146\21\4\33\0\2\4\3\0\4\4\1\147\20\4"+
+    "\33\0\2\4\3\0\3\4\1\150\21\4\33\0\2\4"+
+    "\3\0\4\4\1\151\20\4\33\0\2\4\3\0\7\4"+
+    "\1\152\15\4\33\0\2\4\3\0\10\4\1\153\14\4"+
+    "\33\0\2\4\3\0\17\4\1\154\5\4\33\0\2\4"+
+    "\3\0\3\4\1\155\21\4\33\0\2\4\3\0\13\4"+
+    "\1\156\11\4\33\0\2\4\3\0\1\4\1\157\23\4"+
+    "\33\0\2\4\3\0\17\4\1\160\5\4\33\0\2\4"+
+    "\3\0\3\4\1\161\21\4\33\0\2\4\3\0\1\4"+
+    "\1\162\23\4\33\0\2\4\3\0\21\4\1\163\3\4"+
+    "\33\0\2\4\3\0\14\4\1\164\10\4\33\0\2\4"+
+    "\3\0\1\165\24\4\33\0\2\4\3\0\10\4\1\166"+
+    "\14\4\33\0\2\4\3\0\4\4\1\167\20\4\33\0"+
+    "\2\4\3\0\10\4\1\170\14\4\33\0\2\4\3\0"+
+    "\15\4\1\171\7\4\33\0\2\4\3\0\21\4\1\172"+
+    "\3\4\33\0\2\4\3\0\3\4\1\173\21\4\33\0"+
+    "\2\4\3\0\1\4\1\174\23\4\33\0\2\4\3\0"+
+    "\24\4\1\175\33\0\2\4\3\0\15\4\1\176\7\4"+
+    "\33\0\2\4\3\0\4\4\1\177\20\4\33\0\2\4"+
+    "\3\0\3\4\1\200\21\4\33\0\2\4\3\0\4\4"+
+    "\1\201\20\4\33\0\2\4\3\0\10\4\1\202\14\4"+
+    "\33\0\2\4\3\0\23\4\1\203\1\4\33\0\2\4"+
+    "\3\0\1\204\24\4\33\0\2\4\3\0\3\4\1\205"+
+    "\21\4\32\0";
+
+  private static int [] zzUnpackTrans() {
+    int [] result = new int[4452];
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
     int offset = 0;
     offset = zzUnpackTrans(ZZ_TRANS_PACKED_0, offset, result);
     return result;
@@ -246,12 +366,21 @@ class Yylex implements java_cup.runtime.Scanner {
   private static final int [] ZZ_ATTRIBUTE = zzUnpackAttribute();
 
   private static final String ZZ_ATTRIBUTE_PACKED_0 =
+<<<<<<< HEAD
     "\1\0\1\11\3\1\1\11\22\1\5\11\2\1\1\11"+
     "\2\1\4\11\1\1\3\11\1\1\1\11\1\1\1\0"+
     "\26\1\11\11\1\0\1\11\1\0\74\1";
 
   private static int [] zzUnpackAttribute() {
     int [] result = new int[140];
+=======
+    "\1\0\1\11\3\1\1\11\20\1\5\11\2\1\1\11"+
+    "\2\1\4\11\1\1\3\11\1\1\1\11\1\1\1\0"+
+    "\26\1\11\11\1\0\1\11\1\0\67\1";
+
+  private static int [] zzUnpackAttribute() {
+    int [] result = new int[133];
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
     int offset = 0;
     offset = zzUnpackAttribute(ZZ_ATTRIBUTE_PACKED_0, offset, result);
     return result;
@@ -757,7 +886,11 @@ private Symbol makeSym(int type) {
             // fall through
           case 60: break;
           case 7: 
+<<<<<<< HEAD
             { return makeSym(sym.МИНУС);
+=======
+            { return makeSym(sym.MINUS);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 61: break;
@@ -837,12 +970,20 @@ private Symbol makeSym(int type) {
             // fall through
           case 76: break;
           case 23: 
+<<<<<<< HEAD
             { return makeSym(sym.IF);
+=======
+            { return makeSym(sym.ЕСЛИ);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 77: break;
           case 24: 
+<<<<<<< HEAD
             { return makeSym(sym.EQUALS);
+=======
+            { return makeSym(sym.РОВНЯ);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 78: break;
@@ -902,7 +1043,31 @@ private Symbol makeSym(int type) {
             // fall through
           case 89: break;
           case 36: 
+<<<<<<< HEAD
             { return makeSym(sym.VOIDTYPE);
+=======
+            { return makeSym(sym.TEXTTYPE);
+            } 
+            // fall through
+          case 90: break;
+          case 37: 
+            { return makeSym(sym.ПРАВДА);
+            } 
+            // fall through
+          case 91: break;
+          case 38: 
+            { return makeSym(sym.EXIT);
+            } 
+            // fall through
+          case 92: break;
+          case 39: 
+            { return makeSym(sym.ЕЩЕ);
+            } 
+            // fall through
+          case 93: break;
+          case 40: 
+            { return makeSym(sym.BOOLTYPE);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 90: break;
@@ -927,27 +1092,52 @@ private Symbol makeSym(int type) {
             // fall through
           case 94: break;
           case 41: 
+<<<<<<< HEAD
             { return makeSym(sym.FUNC);
+=======
+            { return makeSym(sym.LISTTYPE);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 95: break;
           case 42: 
+<<<<<<< HEAD
             { return makeSym(sym.CASE);
+=======
+            { return makeSym(sym.VOIDTYPE);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 96: break;
           case 43: 
+<<<<<<< HEAD
             { return makeSym(sym.UNTIL);
+=======
+            { return makeSym(sym.FUNC);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 97: break;
           case 44: 
+<<<<<<< HEAD
             { return makeSym(sym.ТЕКСТ);
+=======
+            { return makeSym(sym.CASE);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 98: break;
           case 45: 
+<<<<<<< HEAD
             { return makeSym(sym.INPUT);
+=======
+            { return makeSym(sym.UNTIL);
+            } 
+            // fall through
+          case 99: break;
+          case 46: 
+            { return makeSym(sym.ERROR);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 99: break;
@@ -957,21 +1147,34 @@ private Symbol makeSym(int type) {
             // fall through
           case 100: break;
           case 47: 
+<<<<<<< HEAD
             { return makeSym(sym.ЛОЖЬ);
+=======
+            { return makeSym(sym.BREAK);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 101: break;
           case 48: 
+<<<<<<< HEAD
             { return makeSym(sym.ВЫХОД);
+=======
+            { return makeSym(sym.INPUT);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 102: break;
           case 49: 
+<<<<<<< HEAD
             { return makeSym(sym.WHILE);
+=======
+            { return makeSym(sym.ЛОЖЬ);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 103: break;
           case 50: 
+<<<<<<< HEAD
             { return makeSym(sym.BREAK);
             } 
             // fall through
@@ -993,6 +1196,29 @@ private Symbol makeSym(int type) {
           case 107: break;
           case 54: 
             { return makeSym(sym.ЛОГИЗНАЧ);
+=======
+            { return makeSym(sym.ВЫХОД);
+            } 
+            // fall through
+          case 104: break;
+          case 51: 
+            { return makeSym(sym.ДО);
+            } 
+            // fall through
+          case 105: break;
+          case 52: 
+            { return makeSym(sym.SWITCH);
+            } 
+            // fall through
+          case 106: break;
+          case 53: 
+            { return makeSym(sym.RETURN);
+            } 
+            // fall through
+          case 107: break;
+          case 54: 
+            { return makeSym(sym.DEFAULT);
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
             } 
             // fall through
           case 108: break;

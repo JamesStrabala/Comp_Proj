@@ -92,11 +92,11 @@ funk
     }
 if
     {
-        return makeSym(sym.IF);
+        return makeSym(sym.ЕСЛИ);
     }
 else
     {
-        return makeSym(sym.ELSE);
+        return makeSym(sym.ЕЩЕ);
     }
 for
     {
@@ -104,7 +104,7 @@ for
     }
 while
     {
-        return makeSym(sym.WHILE);
+        return makeSym(sym.ДО);
     }
 break
     {
@@ -136,7 +136,10 @@ default
     }
 (\+)
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> e062649 (Fixed merge errors on my end and translated more variables)
         return makeSym(sym.ПЛЮС);
     }
 (\-)
@@ -169,7 +172,7 @@ default
     }
 (\=\=)
     {
-        return makeSym(sym.EQUALS);
+        return makeSym(sym.РОВНЯ);
     }
 (\<)
     {
