@@ -10,12 +10,14 @@ public interface sym {
   public static final int ИД = 52;
   public static final int DIVIDE = 7;
   public static final int QSTRING = 53;
+  public static final int ФАНК = 41;
   public static final int ВЫХОД = 36;
   public static final int OPENSQBRACE = 21;
   public static final int ПЛЮС = 4;
   public static final int РОВНЯ = 12;
   public static final int INPUT = 37;
   public static final int CASE = 49;
+  public static final int НАЗАД = 38;
   public static final int ОТКУДРЯВЫЙ = 17;
   public static final int ДО = 45;
   public static final int ЗАПКУДРЯВЫЙ = 18;
@@ -30,7 +32,6 @@ public interface sym {
   public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
-  public static final int НАЗАД = 38;
   public static final int ЕЩЕ = 43;
   public static final int EOF = 0;
   public static final int RETURN = 47;
@@ -45,7 +46,6 @@ public interface sym {
   public static final int TIMES = 6;
   public static final int МИНУС = 5;
   public static final int COLON = 24;
-  public static final int FUNC = 41;
   public static final int СПИСОК = 33;
   public static final int DEFAULT = 50;
   public static final int ТЕКСТ = 30;
@@ -99,10 +99,10 @@ public interface sym {
   "ЛОЖЬ",
   "ВЫХОД",
   "INPUT",
-  "EXIT",
+  "НАЗАД",
   "UNTIL",
   "ОШИБКА",
-  "FUNC",
+  "ФАНК",
   "ЕСЛИ",
   "ЕЩЕ",
   "FOR",

@@ -27,7 +27,7 @@ terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, VOIDTYPE, СПИСОК;
 terminal ПРАВДА, ЛОЖЬ;
-terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, FUNC;
+terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, ФАНК;
 terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
@@ -65,7 +65,7 @@ program ::= func_list:f stmt_list:s
     :}
 ;
 
-funkyboi  ::= FUNC type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
+funkyboi  ::= ФАНК type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
 {:
          System.err.println("Funk parsed!");
 	RESULT = new FunkNode(t,и,p,s);

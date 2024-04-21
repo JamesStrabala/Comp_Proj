@@ -86,9 +86,9 @@ until
     {
         return makeSym(sym.ОШИБКА);
     }
-funk
+фанк
     {
-        return makeSym(sym.FUNC);
+        return makeSym(sym.ФАНК);
     }
 if
     {
