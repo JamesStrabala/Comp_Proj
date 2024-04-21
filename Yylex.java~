@@ -923,7 +923,7 @@ private Symbol makeSym(int type) {
             // fall through
           case 92: break;
           case 39: 
-            { return makeSym(sym.FUNC);
+            { return makeSym(sym.ФАНК);
             } 
             // fall through
           case 93: break;

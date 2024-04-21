@@ -50,9 +50,9 @@ num
     {
         return makeSym(sym.ЛОГИЗНАЧ);
     }
-void
+ничего
     {
-        return makeSym(sym.VOIDTYPE);
+        return makeSym(sym.НИЧЕГО);
     }
 список
     {

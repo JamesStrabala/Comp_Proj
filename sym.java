@@ -28,7 +28,6 @@ public interface sym {
   public static final int LT = 13;
   public static final int NUMTYPE = 29;
   public static final int ЕНДЛ = 2;
-  public static final int VOIDTYPE = 32;
   public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
@@ -46,6 +45,7 @@ public interface sym {
   public static final int TIMES = 6;
   public static final int МИНУС = 5;
   public static final int COLON = 24;
+  public static final int НИЧЕГО = 32;
   public static final int СПИСОК = 33;
   public static final int DEFAULT = 50;
   public static final int ТЕКСТ = 30;
@@ -93,7 +93,7 @@ public interface sym {
   "NUMTYPE",
   "ТЕКСТ",
   "ЛОГИЗНАЧ",
-  "VOIDTYPE",
+  "НИЧЕГО",
   "СПИСОК",
   "ПРАВДА",
   "ЛОЖЬ",

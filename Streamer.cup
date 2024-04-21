@@ -25,7 +25,7 @@ terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
-terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, VOIDTYPE, СПИСОК;
+terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, НИЧЕГО, СПИСОК;
 terminal ПРАВДА, ЛОЖЬ;
 terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, ФАНК;
 terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
@@ -318,10 +318,10 @@ type      ::= NUMTYPE
         System.err.println("Type parsed as ЛОГИЗНАЧ!");
         RESULT = new TypeNode("bool");
     :}
-            | VOIDTYPE
+            | НИЧЕГО 
     {:
-        System.err.println("Type parsed as VOID!");
-        RESULT = new TypeNode("void");
+        System.err.println("Type parsed as НИЧЕГО!");
+        RESULT = new TypeNode("фанк");
     :}
             | СПИСОК LT type:t GT
     {:
