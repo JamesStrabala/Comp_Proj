@@ -13,6 +13,7 @@ public interface sym {
   public static final int ВЫХОД = 37;
   public static final int OPENSQBRACE = 21;
   public static final int EQUALS = 12;
+  public static final int ПЛЮС = 4;
   public static final int INPUT = 38;
   public static final int CASE = 50;
   public static final int ОТКУДРЯВЫЙ = 17;
@@ -31,7 +32,10 @@ public interface sym {
   public static final int UNTIL = 40;
   public static final int GEQ = 16;
   public static final int EXIT = 39;
+<<<<<<< HEAD
   public static final int плюс = 4;
+=======
+>>>>>>> 8d99b32 (SomeComment)
   public static final int IF = 43;
   public static final int EOF = 0;
   public static final int RETURN = 48;
@@ -66,7 +70,11 @@ public interface sym {
   "error",
   "ЕНДЛ",
   "РАВНО",
+<<<<<<< HEAD
   "плюс",
+=======
+  "ПЛЮС",
+>>>>>>> 8d99b32 (SomeComment)
   "MINUS",
   "TIMES",
   "DIVIDE",
