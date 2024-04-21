@@ -6,15 +6,15 @@ import java_cup.runtime.*;
  * @author Peter Ohmann + James Strabala
  */
 public class BoolExpressionNode extends ExpressionNode {
-    private Boolean value;
+    private Object value;
 
-    public BoolExpressionNode(Boolean input) {
+    public BoolExpressionNode(Object input) {
         super();
          value=input;
         }
     
 
-    public Boolean getValue() {
+    public Object getValue() {
         return this.value;
     }
 

@@ -19,18 +19,19 @@ public void report_fatal_error(String message, Object info) {
 
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
-terminal SEMICOLON, ASSIGN, PLUS, МИНУС, TIMES, DIVIDE, MOD;
-terminal AND, OR, NOT, EQUALS, LT, GT, LEQ, GEQ;
-terminal OPENCURLY, CLOSECURLY;
-terminal OPENPAREN, CLOSEPAREN;
+terminal ЕНДЛ, РАВНО, плюс, МИНУС, TIMES, DIVIDE, MOD;
+terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
+terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
+terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
-terminal COMMA, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
-terminal NUMTYPE, ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
-terminal TRUE, FALSE;
+terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
+terminal NUMTYPE,  ТЕКСТ, BOOLTYPE, VOIDTYPE, LISTTYPE;
+terminal ПРАВДА, ЛОЖЬ;
+
 terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal IF, ELSE, FOR, WHILE, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
-terminal String NUM, ИД, QSTRING;
+terminal String ЦЕЛ, ИД, QSTRING;
 
 /* Non terminals */
 non terminal ProgramNode program;
@@ -49,13 +50,13 @@ non terminal DefaultCaseNode dc;
 non terminal CaseNode case;
 
 /* Precedences */
-precedence right ASSIGN;
+precedence right РАВНО;
 precedence left EQUALS;
-precedence left PLUS, МИНУС;
+precedence left плюс, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
-precedence left OR;
-precedence left AND;
-precedence right NOT;
+precedence left ИЛИ;
+precedence left И;
+precedence right НЕТ;
 
 /* The grammar rules */
 program ::= func_list:f stmt_list:s
@@ -65,7 +66,7 @@ program ::= func_list:f stmt_list:s
     :}
 ;
 
-funkyboi  ::= FUNC type:t ИД:и  OPENPAREN pl:p CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY
+funkyboi  ::= FUNC type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
 {:
          System.err.println("Funk parsed!");
 	RESULT = new FunkNode(t,и,p,s);
@@ -98,88 +99,89 @@ stmt_list ::= stmt:s stmt_list:l
     :}
 ;
 
-stmt      ::= expr:e SEMICOLON
+stmt      ::= expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as expression!");
         RESULT = new ExpressionStatementNode(e);
     :}
-            | ВЫХОД expr:e SEMICOLON
+
+            | ВЫХОД expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as print!");
         RESULT = new PrintStatementNode(e);
     :}
-            | ИД:и ASSIGN expr:e SEMICOLON
+            | ИД:и РАВНО  expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as assignment!");
         RESULT = new AssignStatementNode(и, e);
     :}
-            | type:t ИД:и ASSIGN expr:e SEMICOLON
+            | type:t ИД:и РАВНО expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as a declaration assignment!");
         AssignStatementNode assignment = new AssignStatementNode(и, e);
         RESULT = new DeclarationStatementNode(t, и, assignment);
     :}
-            | type:t ИД:и SEMICOLON
+            | type:t ИД:и ЕНДЛ 
     {:
         System.err.println("Statement parsed as a declaration!");
         RESULT = new DeclarationStatementNode(t, и);
     :}
-            | ERROR OPENCURLY stmt_list:s CLOSECURLY
+            | ERROR ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as an error statement!");
         RESULT = new ErrorStatementNode(s);
     :}
-            | type:t ИД:и READFILE expr:e SEMICOLON
+            | type:t ИД:и READFILE expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as a declaration read!");
         ReadStatementNode assignment = new ReadStatementNode(и, e);
         RESULT = new DeclarationStatementNode(t, и, assignment);
 :}
-            | EXIT expr:e SEMICOLON
+            | EXIT expr:e ЕНДЛ 
     {:
-        System.err.println("Statement parsed as Exit!");
+        System.err.println("Statement parsed as Exit!"); 
         RESULT = new ExitStatementNode(e);
 :}
-            | RETURN expr:e SEMICOLON
+            | RETURN expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as Return!");
         RESULT = new ReturnStatementNode(e);
 :}
-            | UNTIL type:t ИД:и READFILE expr:e SEMICOLON OPENCURLY stmt_list:s CLOSECURLY
+            | UNTIL type:t ИД:и READFILE expr:e ЕНДЛ  ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as until!");
         ReadStatementNode assignment = new ReadStatementNode(и, e);
         DeclarationStatementNode ds = new DeclarationStatementNode(t, и, assignment);
 	RESULT = new UntilStatementNode(ds, s);
 :}
-            | UNTIL type:t ИД:и ASSIGN expr:e SEMICOLON OPENCURLY stmt_list:s CLOSECURLY
+            | UNTIL type:t ИД:и РАВНО expr:e ЕНДЛ ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as until!");
         AssignStatementNode assignment = new AssignStatementNode(и, e);
         DeclarationStatementNode ds = new DeclarationStatementNode(t, и, assignment);
 	RESULT = new UntilStatementNode(ds, s);
 :}
-            | expr:e WRITEFILE expr:e2 SEMICOLON
+            | expr:e WRITEFILE expr:e2 ЕНДЛ 
     {:
         System.err.println("Statement parsed as a File write!");
         RESULT = new FileWriteNode(e,e2);
 :}
-            | IF OPENPAREN expr:e CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY
+            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s);
 :}
-            | IF OPENPAREN expr:e CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY ELSE OPENCURLY stmt_list:s2 CLOSECURLY
+            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ ELSE ОТКУДРЯВЫЙ stmt_list:s2 ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s,s2);
 :}
-            | FOR OPENPAREN type:t ИД:и COLON  ИД:и2 CLOSEPAREN OPENCURLY stmt_list:s CLOSECURLY
+            | FOR ОТСКОБКА  type:t ИД:и COLON  ИД:и2 ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as for!");
         RESULT = new ForStateNode(t, и, new IdExpressionNode(и2), s);
 :}
-            | SWITCH OPENPAREN expr:e CLOSEPAREN OPENCURLY cl:cas dc:d CLOSECURLY
+            | SWITCH ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ cl:cas dc:d ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as switch!");
 	cas.addDefault(d);
@@ -187,7 +189,7 @@ stmt      ::= expr:e SEMICOLON
 :}
 ;
 
-expr      ::= expr:e1 PLUS expr:e2
+expr      ::= expr:e1 плюс expr:e2
     {:
         System.err.println("Expression parsed as plus!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "+");
@@ -197,12 +199,12 @@ expr      ::= expr:e1 PLUS expr:e2
         System.err.println("Expression parsed as minus!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "-");
     :}
-            | expr:e1 AND expr:e2
+            | expr:e1 И expr:e2
     {:
         System.err.println("Expression parsed as and!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "&&");
     :}
-            | expr:e1 OR expr:e2
+            | expr:e1 ИЛИ expr:e2
     {:
         System.err.println("Expression parsed as or!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "||");
@@ -212,37 +214,37 @@ expr      ::= expr:e1 PLUS expr:e2
         System.err.println("Expression parsed as ИД!");
         RESULT = new IdExpressionNode(и);
     :}
-            | NUM:n
+            | ЦЕЛ:ц
     {:
-        System.err.println("Expression parsed as NUM!");
-        RESULT = new NumExpressionNode(n);
+        System.err.println("Expression parsed as ЦЕЛ!");
+        RESULT = new NumExpressionNode(ц);
     :}
             | QSTRING:s
     {:
         System.err.println("Expression parsed as QSTRING!");
         RESULT = new StringExpressionNode(s);
     :}
-            | FALSE
+            | ЛОЖЬ:ложь
     {:
-        System.err.println("Expression parsed as FALSE!");
-        RESULT = new BoolExpressionNode(false);
+        System.err.println("Expression parsed as ЛОЖЬ!");
+        RESULT = new BoolExpressionNode(ложь);
     :}
-            | TRUE
+            | ПРАВДА:правда
     {:
-        System.err.println("Expression parsed as TRUE!");
-        RESULT = new BoolExpressionNode(true);
+        System.err.println("Expression parsed as ПРАВДА!");
+        RESULT = new BoolExpressionNode(правда);
     :}
-            | NOT expr:e
+            | НЕТ expr:e
     {:
-        System.err.println("Expression parsed as NOT!");
+        System.err.println("Expression parsed as НЕТ!");
         RESULT = new NotExpressionNode(e);
     :}
-            |  OPENCURLY expr_list:el CLOSECURLY
+            |  ОТКУДРЯВЫЙ expr_list:el ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Expression parsed as list!");
         RESULT = el;
     :}
-            | ИД:и OPENPAREN expr_list:el CLOSEPAREN
+            | ИД:и ОТСКОБКА  expr_list:el ЗАПСКОБКА
     {:
         System.err.println("Expression parsed as Funk Kall!");
         RESULT = new FunkKallNode(и,el);
@@ -283,7 +285,7 @@ expr      ::= expr:e1 PLUS expr:e2
         RESULT = new BinaryOpExpressionNode(e1, e2, "==");
     :}
 ;
-expr_list ::= expr:e COMMA expr_list:el
+expr_list ::= expr:e ПОЛОСРАСКОЛ expr_list:el
     {:
         System.err.println("Statement list parsed!");
         el.addExpression(e, 0);
@@ -302,12 +304,12 @@ expr_list ::= expr:e COMMA expr_list:el
 ;
 type      ::= NUMTYPE
     {:
-        System.err.println("Type parsed as NUM!");
-        RESULT = new TypeNode("num");
+        System.err.println("Type parsed as ЦЕЛ!");
+        RESULT = new TypeNode("цел");
     :}
             | ТЕКСТ
     {:
-        System.err.println("Type parsed as TEXT!");
+        System.err.println("Type parsed as ТЕКСТ!");
         RESULT = new TypeNode("текст");
     :}
             | BOOLTYPE
@@ -332,7 +334,7 @@ p     ::= type:t ИД:и
 	RESULT= new ParamNode(t,и);
 :}
 ;
-pl ::= p:pa COMMA pl:l
+pl ::= p:pa ПОЛОСРАСКОЛ pl:l
     {:
         System.err.println("Parameter list parsed!");
         l.addParam(pa, 0);

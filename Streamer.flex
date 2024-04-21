@@ -30,7 +30,7 @@ private Symbol makeSym(int type) {
 %}
 
 DIGIT  = [0-9]
-LETTER = [A-Za-z]
+LETTER = [A-Za-z] | [А-Яа-я]
 WS     = (\r|\n|\r\n) | [ \t\f]
 
 %state STRING
@@ -60,11 +60,11 @@ list
     }
 true
     {
-        return makeSym(sym.TRUE);
+        return makeSym(sym.ПРАВДА);
     }
 false
     {
-        return makeSym(sym.FALSE);
+        return makeSym(sym.ЛОЖЬ);
     }
 выход
     {
@@ -132,11 +132,11 @@ default
 /* operators and other important chars */
 (=)
     {
-        return makeSym(sym.ASSIGN);
+        return makeSym(sym.РАВНО);
     }
 (\+)
     {
-        return makeSym(sym.PLUS);
+        return makeSym(sym.плюс);
     }
 (\-)
     {
@@ -156,15 +156,15 @@ default
     }
 (\&\&)
     {
-        return makeSym(sym.AND);
+        return makeSym(sym.И);
     }
 (\|\|)
     {
-        return makeSym(sym.OR);
+        return makeSym(sym.ИЛИ);
     }
 (\!)
     {
-        return makeSym(sym.NOT);
+        return makeSym(sym.НЕТ);
     }
 (\=\=)
     {
@@ -188,19 +188,19 @@ default
     }
 (\{)
     {
-        return makeSym(sym.OPENCURLY);
+        return makeSym(sym.ОТКУДРЯВЫЙ);
     }
 (\})
     {
-        return makeSym(sym.CLOSECURLY);
+        return makeSym(sym.ЗАПКУДРЯВЫЙ);
     }
 (\()
     {
-        return makeSym(sym.OPENPAREN);
+        return makeSym(sym.ОТСКОБКА);
     }
 (\))
     {
-        return makeSym(sym.CLOSEPAREN);
+        return makeSym(sym.ЗАПСКОБКА);
     }
 (\[)
     {
@@ -210,9 +210,11 @@ default
     {
         return makeSym(sym.CLOSESQBRACE);
     }
-(,)
+/* use a semicolon to separate items in a list instead of a comma */
+
+(;)
     {
-        return makeSym(sym.COMMA);
+        return makeSym(sym.ПОЛОСРАСКОЛ);
     }
 (:)
     {
@@ -234,16 +236,17 @@ default
     {
         return makeSym(sym.CLOSEFILTER);
     }
-(;)
+/* use periods instead of semicolons */
+(.)
     {
-        return makeSym(sym.SEMICOLON);
+        return makeSym(sym.ЕНДЛ);
     }
 
 
 /* values */
-{DIGIT}+(\.{DIGIT}+)?
+{DIGIT}+(,{DIGIT}+)?
     {
-        return makeSym(sym.NUM, yytext());
+        return makeSym(sym.ЦЕЛ, yytext());
     }
 \"(\\.|[^\\\"])*\"
     {
