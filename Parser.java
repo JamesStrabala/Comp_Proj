@@ -30,7 +30,7 @@ public class Parser extends java_cup.runtime.lr_parser {
   protected static final short _production_table[][] = 
     unpackFromStrings(new String[] {
     "\000\074\000\002\002\004\000\002\002\004\000\002\012" +
-    "\013\000\002\003\002\000\002\003\004\000\002\004\004" +
+    "\013\000\002\003\004\000\002\003\002\000\002\004\004" +
     "\000\002\004\002\000\002\005\004\000\002\005\005\000" +
     "\002\005\006\000\002\005\007\000\002\005\005\000\002" +
     "\005\006\000\002\005\007\000\002\005\005\000\002\005" +
@@ -55,14 +55,14 @@ public class Parser extends java_cup.runtime.lr_parser {
   /** Parse-action table. */
   protected static final short[][] _action_table = 
     unpackFromStrings(new String[] {
-    "\000\237\000\060\002\ufffe\015\ufffe\023\ufffe\037\ufffe\040" +
-    "\ufffe\041\ufffe\042\ufffe\043\ufffe\044\ufffe\045\ufffe\046\ufffe" +
-    "\047\ufffe\050\ufffe\051\ufffe\052\ufffe\053\007\054\ufffe\056" +
-    "\ufffe\061\ufffe\062\ufffe\065\ufffe\066\ufffe\067\ufffe\001\002" +
-    "\000\060\002\ufffe\015\ufffe\023\ufffe\037\ufffe\040\ufffe\041" +
-    "\ufffe\042\ufffe\043\ufffe\044\ufffe\045\ufffe\046\ufffe\047\ufffe" +
-    "\050\ufffe\051\ufffe\052\ufffe\053\007\054\ufffe\056\ufffe\061" +
-    "\ufffe\062\ufffe\065\ufffe\066\ufffe\067\ufffe\001\002\000\004" +
+    "\000\237\000\060\002\ufffd\015\ufffd\023\ufffd\037\ufffd\040" +
+    "\ufffd\041\ufffd\042\ufffd\043\ufffd\044\ufffd\045\ufffd\046\ufffd" +
+    "\047\ufffd\050\ufffd\051\ufffd\052\ufffd\053\007\054\ufffd\056" +
+    "\ufffd\061\ufffd\062\ufffd\065\ufffd\066\ufffd\067\ufffd\001\002" +
+    "\000\060\002\ufffd\015\ufffd\023\ufffd\037\ufffd\040\ufffd\041" +
+    "\ufffd\042\ufffd\043\ufffd\044\ufffd\045\ufffd\046\ufffd\047\ufffd" +
+    "\050\ufffd\051\ufffd\052\ufffd\053\007\054\ufffd\056\ufffd\061" +
+    "\ufffd\062\ufffd\065\ufffd\066\ufffd\067\ufffd\001\002\000\004" +
     "\002\240\001\002\000\056\002\ufffb\015\047\023\043\037" +
     "\011\040\012\041\010\042\013\043\015\044\033\045\055" +
     "\046\041\047\032\050\046\051\050\052\045\054\052\056" +
@@ -354,10 +354,10 @@ public class Parser extends java_cup.runtime.lr_parser {
     "\024\uffde\026\uffde\030\uffde\031\uffde\032\uffde\034\uffde\036" +
     "\uffde\001\002\000\006\026\uffcd\031\uffcd\001\002\000\004" +
     "\002\001\001\002\000\004\002\000\001\002\000\056\002" +
-    "\ufffd\015\ufffd\023\ufffd\037\ufffd\040\ufffd\041\ufffd\042\ufffd" +
-    "\043\ufffd\044\ufffd\045\ufffd\046\ufffd\047\ufffd\050\ufffd\051" +
-    "\ufffd\052\ufffd\054\ufffd\056\ufffd\061\ufffd\062\ufffd\065\ufffd" +
-    "\066\ufffd\067\ufffd\001\002" });
+    "\ufffe\015\ufffe\023\ufffe\037\ufffe\040\ufffe\041\ufffe\042\ufffe" +
+    "\043\ufffe\044\ufffe\045\ufffe\046\ufffe\047\ufffe\050\ufffe\051" +
+    "\ufffe\052\ufffe\054\ufffe\056\ufffe\061\ufffe\062\ufffe\065\ufffe" +
+    "\066\ufffe\067\ufffe\001\002" });
 
   /** Access to parse-action table. */
   public short[][] action_table() {return _action_table;}
@@ -561,19 +561,7 @@ class CUP$Parser$actions {
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 3: // func_list ::= 
-            {
-              FunctionListNode RESULT =null;
-		
-        System.err.println("Function list parsed!");
-        RESULT = new FunctionListNode();
-    
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("func_list",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 4: // func_list ::= funkyboi func_list 
+          case 3: // func_list ::= funkyboi func_list 
             {
               FunctionListNode RESULT =null;
 		int fleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
@@ -583,10 +571,25 @@ class CUP$Parser$actions {
 		int f2right = ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
 		FunctionListNode f2 = (FunctionListNode)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
+        System.err.println("Function list parsed!");
 	f2.addFunk(f,0);
-	RESULT=f2;
+	RESULT=f2;   
 
+    
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("func_list",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 4: // func_list ::= 
+            {
+              FunctionListNode RESULT =null;
+		
+	System.err.println("Empty function list parsed!");
+	RESULT = new FunctionListNode();
+	
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("func_list",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 

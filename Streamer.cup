@@ -72,15 +72,18 @@ funkyboi  ::= ФАНК type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА 
 	RESULT = new FunkNode(t,и,p,s);
 :}
 ;
-func_list ::= /* epsilson: TODO! */
+func_list ::= funkyboi:f func_list:f2
     {:
         System.err.println("Function list parsed!");
-        RESULT = new FunctionListNode();
+	f2.addFunk(f);
+	RESULT=f2;   
+
     :}
-	| funkyboi:f func_list:f2
+	| /* epsilson */
 {:
-	f2.addFunk(f,0);
-	RESULT=f2;
+	System.err.println("Empty function list parsed!");
+	RESULT = new FunctionListNode();
+	
 :}
 
 ;
