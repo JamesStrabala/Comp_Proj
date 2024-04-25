@@ -901,16 +901,12 @@ private Symbol makeSym(int type) {
             // fall through
           case 87: break;
           case 34: 
-            { return makeSym(sym.FOR);
+            { return makeSym(sym.ЗА);
             } 
             // fall through
           case 88: break;
           case 35: 
-<<<<<<< HEAD
-            { return makeSym(sym.ЗА);
-=======
             { return makeSym(sym.ПРАВДА);
->>>>>>> fb2535d3e7ec4201d61ccdb756549608a0f6f25a
             } 
             // fall through
           case 89: break;

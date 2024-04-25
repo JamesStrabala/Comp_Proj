@@ -21,13 +21,13 @@ public interface sym {
   public static final int ОТКУДРЯВЫЙ = 17;
   public static final int ДО = 45;
   public static final int ЗАПКУДРЯВЫЙ = 18;
-  public static final int ЗА  = 44;
   public static final int READFILE = 25;
   public static final int ПРАВДА = 34;
   public static final int OPENFILTER = 27;
   public static final int LT = 13;
   public static final int ЕНДЛ = 2;
   public static final int ПОЛОСРАСКОЛ = 23;
+  public static final int ЗА = 44;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
   public static final int НОМЕРА = 29;
@@ -101,21 +101,12 @@ public interface sym {
   "INPUT",
   "НАЗАД",
   "UNTIL",
-<<<<<<< HEAD
-  "ERROR",
-  "FUNC",
-  "IF",
-  "ELSE",
-  "ЗА",
-  "WHILE",
-=======
   "ОШИБКА",
   "ФАНК",
   "ЕСЛИ",
   "ЕЩЕ",
-  "FOR",
+  "ЗА",
   "ДО",
->>>>>>> fb2535d3e7ec4201d61ccdb756549608a0f6f25a
   "BREAK",
   "RETURN",
   "SWITCH",

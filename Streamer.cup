@@ -27,14 +27,9 @@ terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
 terminal НОМЕРА,  ТЕКСТ, ЛОГИЗНАЧ, НИЧЕГО, СПИСОК;
 terminal ПРАВДА, ЛОЖЬ;
-<<<<<<< HEAD
 
-terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
-terminal IF, ELSE, ЗА, WHILE, BREAK, RETURN;
-=======
 terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, ФАНК;
-terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
->>>>>>> fb2535d3e7ec4201d61ccdb756549608a0f6f25a
+terminal ЕСЛИ, ЕЩЕ, ЗА, ДО, BREAK, RETURN;
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
 
