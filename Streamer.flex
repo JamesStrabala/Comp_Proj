@@ -38,9 +38,9 @@ WS     = (\r|\n|\r\n) | [ \t\f]
 %%
 
 /* keywords */
-num
+номера
     {
-        return makeSym(sym.NUMTYPE);
+        return makeSym(sym.НОМЕРА);
     }
 текст
     {
@@ -50,13 +50,13 @@ num
     {
         return makeSym(sym.ЛОГИЗНАЧ);
     }
-void
+ничего
     {
-        return makeSym(sym.VOIDTYPE);
+        return makeSym(sym.НИЧЕГО);
     }
-list
+список
     {
-        return makeSym(sym.LISTTYPE);
+        return makeSym(sym.СПИСОК);
     }
 true
     {
@@ -74,29 +74,29 @@ input
     {
         return makeSym(sym.INPUT);
     }
-exit
+назад
     {
-        return makeSym(sym.EXIT);
+        return makeSym(sym.НАЗАД);
     }
 until
     {
         return makeSym(sym.UNTIL);
     }
-error
+ошибка
     {
-        return makeSym(sym.ERROR);
+        return makeSym(sym.ОШИБКА);
     }
-funk
+фанк
     {
-        return makeSym(sym.FUNC);
+        return makeSym(sym.ФАНК);
     }
 if
     {
-        return makeSym(sym.IF);
+        return makeSym(sym.ЕСЛИ);
     }
 else
     {
-        return makeSym(sym.ELSE);
+        return makeSym(sym.ЕЩЕ);
     }
 for
     {
@@ -104,7 +104,7 @@ for
     }
 while
     {
-        return makeSym(sym.WHILE);
+        return makeSym(sym.ДО);
     }
 break
     {
@@ -136,7 +136,6 @@ default
     }
 (\+)
     {
-
         return makeSym(sym.ПЛЮС);
     }
 (\-)
@@ -169,7 +168,7 @@ default
     }
 (\=\=)
     {
-        return makeSym(sym.EQUALS);
+        return makeSym(sym.РОВНЯ);
     }
 (\<)
     {

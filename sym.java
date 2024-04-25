@@ -10,28 +10,28 @@ public interface sym {
   public static final int ИД = 52;
   public static final int DIVIDE = 7;
   public static final int QSTRING = 53;
+  public static final int ФАНК = 41;
   public static final int ВЫХОД = 36;
   public static final int OPENSQBRACE = 21;
-  public static final int EQUALS = 12;
   public static final int ПЛЮС = 4;
+  public static final int РОВНЯ = 12;
   public static final int INPUT = 37;
   public static final int CASE = 49;
+  public static final int НАЗАД = 38;
   public static final int ОТКУДРЯВЫЙ = 17;
+  public static final int ДО = 45;
   public static final int ЗАПКУДРЯВЫЙ = 18;
   public static final int ЗА  = 44;
   public static final int READFILE = 25;
   public static final int ПРАВДА = 34;
-  public static final int LISTTYPE = 33;
   public static final int OPENFILTER = 27;
   public static final int LT = 13;
-  public static final int NUMTYPE = 29;
   public static final int ЕНДЛ = 2;
-  public static final int VOIDTYPE = 32;
   public static final int ПОЛОСРАСКОЛ = 23;
   public static final int UNTIL = 39;
   public static final int GEQ = 16;
-  public static final int EXIT = 38;
-  public static final int IF = 42;
+  public static final int НОМЕРА = 29;
+  public static final int ЕЩЕ = 43;
   public static final int EOF = 0;
   public static final int RETURN = 47;
   public static final int error = 1;
@@ -39,15 +39,14 @@ public interface sym {
   public static final int MOD = 8;
   public static final int BREAK = 46;
   public static final int CLOSEFILTER = 28;
-  public static final int ERROR = 40;
+  public static final int ЕСЛИ = 42;
   public static final int SWITCH = 48;
   public static final int ИЛИ = 10;
   public static final int TIMES = 6;
   public static final int МИНУС = 5;
   public static final int COLON = 24;
-  public static final int ELSE = 43;
-  public static final int FUNC = 41;
-  public static final int WHILE = 45;
+  public static final int НИЧЕГО = 32;
+  public static final int СПИСОК = 33;
   public static final int DEFAULT = 50;
   public static final int ТЕКСТ = 30;
   public static final int ЛОГИЗНАЧ = 31;
@@ -60,6 +59,7 @@ public interface sym {
   public static final int ЦЕЛ = 51;
   public static final int И = 9;
   public static final int ЗАПСКОБКА = 20;
+  public static final int ОШИБКА = 40;
   public static final String[] terminalNames = new String[] {
   "EOF",
   "error",
@@ -73,7 +73,7 @@ public interface sym {
   "И",
   "ИЛИ",
   "НЕТ",
-  "EQUALS",
+  "РОВНЯ",
   "LT",
   "GT",
   "LEQ",
@@ -90,23 +90,32 @@ public interface sym {
   "WRITEFILE",
   "OPENFILTER",
   "CLOSEFILTER",
-  "NUMTYPE",
+  "НОМЕРА",
   "ТЕКСТ",
   "ЛОГИЗНАЧ",
-  "VOIDTYPE",
-  "LISTTYPE",
+  "НИЧЕГО",
+  "СПИСОК",
   "ПРАВДА",
   "ЛОЖЬ",
   "ВЫХОД",
   "INPUT",
-  "EXIT",
+  "НАЗАД",
   "UNTIL",
+<<<<<<< HEAD
   "ERROR",
   "FUNC",
   "IF",
   "ELSE",
   "ЗА",
   "WHILE",
+=======
+  "ОШИБКА",
+  "ФАНК",
+  "ЕСЛИ",
+  "ЕЩЕ",
+  "FOR",
+  "ДО",
+>>>>>>> fb2535d3e7ec4201d61ccdb756549608a0f6f25a
   "BREAK",
   "RETURN",
   "SWITCH",

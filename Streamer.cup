@@ -20,16 +20,21 @@ public void report_fatal_error(String message, Object info) {
 /* Terminals (tokens returned by the scanner). */
 /* This is what generates sym.java! */
 terminal ЕНДЛ, РАВНО, ПЛЮС, МИНУС, TIMES, DIVIDE, MOD;
-terminal И,ИЛИ, НЕТ, EQUALS, LT, GT, LEQ, GEQ;
+terminal И,ИЛИ, НЕТ, РОВНЯ, LT, GT, LEQ, GEQ;
 terminal ОТКУДРЯВЫЙ, ЗАПКУДРЯВЫЙ;
 terminal ОТСКОБКА, ЗАПСКОБКА;
 terminal OPENSQBRACE, CLOSESQBRACE;
 terminal ПОЛОСРАСКОЛ, COLON, READFILE, WRITEFILE, OPENFILTER, CLOSEFILTER;
-terminal NUMTYPE,  ТЕКСТ, ЛОГИЗНАЧ, VOIDTYPE, LISTTYPE;
+terminal НОМЕРА,  ТЕКСТ, ЛОГИЗНАЧ, НИЧЕГО, СПИСОК;
 terminal ПРАВДА, ЛОЖЬ;
+<<<<<<< HEAD
 
 terminal ВЫХОД, INPUT, EXIT, UNTIL, ERROR, FUNC;
 terminal IF, ELSE, ЗА, WHILE, BREAK, RETURN;
+=======
+terminal ВЫХОД, INPUT, НАЗАД, UNTIL, ОШИБКА, ФАНК;
+terminal ЕСЛИ, ЕЩЕ, FOR, ДО, BREAK, RETURN;
+>>>>>>> fb2535d3e7ec4201d61ccdb756549608a0f6f25a
 terminal SWITCH, CASE, DEFAULT;
 terminal String ЦЕЛ, ИД, QSTRING;
 
@@ -51,11 +56,11 @@ non terminal CaseNode case;
 
 /* Precedences */
 precedence right РАВНО;
-precedence left EQUALS;
+precedence left  РОВНЯ, LEQ, GEQ;
 precedence left ПЛЮС, МИНУС;
 precedence left TIMES, DIVIDE, MOD;
 precedence left ИЛИ;
-precedence left И;
+precedence right И;
 precedence right НЕТ;
 
 /* The grammar rules */
@@ -66,7 +71,7 @@ program ::= func_list:f stmt_list:s
     :}
 ;
 
-funkyboi  ::= FUNC type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
+funkyboi  ::= ФАНК type:t ИД:и  ОТСКОБКА pl:p ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
 {:
          System.err.println("Funk parsed!");
 	RESULT = new FunkNode(t,и,p,s);
@@ -126,7 +131,7 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as a declaration!");
         RESULT = new DeclarationStatementNode(t, и);
     :}
-            | ERROR ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
+            | ОШИБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as an error statement!");
         RESULT = new ErrorStatementNode(s);
@@ -137,7 +142,7 @@ stmt      ::= expr:e ЕНДЛ
         ReadStatementNode assignment = new ReadStatementNode(и, e);
         RESULT = new DeclarationStatementNode(t, и, assignment);
 :}
-            | EXIT expr:e ЕНДЛ 
+            | НАЗАД expr:e ЕНДЛ 
     {:
         System.err.println("Statement parsed as Exit!"); 
         RESULT = new ExitStatementNode(e);
@@ -166,12 +171,12 @@ stmt      ::= expr:e ЕНДЛ
         System.err.println("Statement parsed as a File write!");
         RESULT = new FileWriteNode(e,e2);
 :}
-            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
+            | ЕСЛИ ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s);
 :}
-            | IF ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ ELSE ОТКУДРЯВЫЙ stmt_list:s2 ЗАПКУДРЯВЫЙ
+            | ЕСЛИ ОТСКОБКА expr:e ЗАПСКОБКА ОТКУДРЯВЫЙ stmt_list:s ЗАПКУДРЯВЫЙ ЕЩЕ ОТКУДРЯВЫЙ stmt_list:s2 ЗАПКУДРЯВЫЙ
     {:
         System.err.println("Statement parsed as if!");
         RESULT = new IfStateNode(e,s,s2);
@@ -281,10 +286,20 @@ expr      ::= expr:e1 ПЛЮС expr:e2
         System.err.println("Expression parsed as list filter!");
         RESULT = new ListFiltNode(и,e);
     :}
-            | expr:e1 EQUALS expr:e2
+            | expr:e1  РОВНЯ expr:e2
     {:
         System.err.println("Expression parsed as mod!");
         RESULT = new BinaryOpExpressionNode(e1, e2, "==");
+    :}
+            | expr:e1  LEQ expr:e2
+    {:
+        System.err.println("Expression parsed as less or equal!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, "<=");
+    :}
+            | expr:e1  GEQ expr:e2
+    {:
+        System.err.println("Expression parsed as greater or equal!");
+        RESULT = new BinaryOpExpressionNode(e1, e2, ">=");
     :}
 ;
 expr_list ::= expr:e ПОЛОСРАСКОЛ expr_list:el
@@ -304,7 +319,7 @@ expr_list ::= expr:e ПОЛОСРАСКОЛ expr_list:el
         RESULT = new ExpressionListNode();
     :}
 ;
-type      ::= NUMTYPE
+type      ::= НОМЕРА
     {:
         System.err.println("Type parsed as ЦЕЛ!");
         RESULT = new TypeNode("цел");
@@ -319,12 +334,12 @@ type      ::= NUMTYPE
         System.err.println("Type parsed as ЛОГИЗНАЧ!");
         RESULT = new TypeNode("bool");
     :}
-            | VOIDTYPE
+            | НИЧЕГО 
     {:
-        System.err.println("Type parsed as VOID!");
-        RESULT = new TypeNode("void");
+        System.err.println("Type parsed as НИЧЕГО!");
+        RESULT = new TypeNode("фанк");
     :}
-            | LISTTYPE LT type:t GT
+            | СПИСОК LT type:t GT
     {:
         System.err.println("Type parsed as LIST!");
         RESULT = new ListTypeNode(t);
