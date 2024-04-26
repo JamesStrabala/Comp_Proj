@@ -38,7 +38,7 @@ WS     = (\r|\n|\r\n) | [ \t\f]
 %%
 
 /* keywords */
-номера
+цел
     {
         return makeSym(sym.НОМЕРА);
     }
@@ -244,7 +244,7 @@ default
 
 
 /* values */
-{DIGIT}+(,{DIGIT}+)?
+({DIGIT}+\,{DIGIT}+)|{DIGIT}+
     {
         return makeSym(sym.ЦЕЛ, yytext());
     }

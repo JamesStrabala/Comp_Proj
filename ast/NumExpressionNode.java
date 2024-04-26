@@ -11,7 +11,8 @@ public class NumExpressionNode extends ExpressionNode {
     public NumExpressionNode(String text) {
         super();
         try {
-            double val = Double.parseDouble(text);
+            String updatedText = text.replace(',', '.');
+            Double val = Double.parseDouble(updatedText);
             this.value = val;
         }
         catch (Exception e) {

@@ -572,7 +572,7 @@ class CUP$Parser$actions {
 		FunctionListNode f2 = (FunctionListNode)((java_cup.runtime.Symbol) CUP$Parser$stack.peek()).value;
 		
         System.err.println("Function list parsed!");
-	f2.addFunk(f,0);
+	f2.addFunk(f);
 	RESULT=f2;   
 
     
