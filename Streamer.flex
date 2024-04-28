@@ -58,11 +58,11 @@ WS     = (\r|\n|\r\n) | [ \t\f]
     {
         return makeSym(sym.СПИСОК);
     }
-true
+правда
     {
         return makeSym(sym.ПРАВДА);
     }
-false
+ложь
     {
         return makeSym(sym.ЛОЖЬ);
     }
